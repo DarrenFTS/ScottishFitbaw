@@ -70,14 +70,17 @@ body::before{content:'';position:fixed;inset:0;
 .notice{background:rgba(240,192,64,0.1);border:1px solid rgba(240,192,64,0.28);border-radius:8px;
   padding:12px 16px;font-size:0.86rem;color:rgba(255,220,100,0.9);margin-bottom:18px;line-height:1.5;}
 .loading{text-align:center;padding:60px 20px;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.1em;color:var(--text-dim);}
-/* bonus cell colours */
 .bc-correct{background:rgba(100,200,80,0.25);color:#90ee90;border-radius:4px;padding:2px 6px;font-weight:600;}
 .bc-wrong{background:rgba(200,50,50,0.25);color:#ff9090;border-radius:4px;padding:2px 6px;}
-/* bonus legend */
+.bc-pending{background:rgba(255,255,255,0.06);color:var(--text-dim);border-radius:4px;padding:2px 6px;font-style:italic;}
 .bonus-legend{display:flex;gap:16px;align-items:center;margin-bottom:14px;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;flex-wrap:wrap;}
 .legend-dot{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:middle;}
 .legend-correct{background:rgba(100,200,80,0.4);border:1px solid #90ee90;}
 .legend-wrong{background:rgba(200,50,50,0.4);border:1px solid #ff9090;}
+.legend-pending{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);}
+.season-badge{display:inline-block;background:rgba(240,192,64,0.15);border:1px solid rgba(240,192,64,0.4);
+  border-radius:20px;padding:4px 14px;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;
+  font-weight:700;letter-spacing:0.1em;color:var(--gold);margin-left:10px;vertical-align:middle;}
 @media(max-width:640px){
   .header{flex-direction:column;text-align:center;gap:14px;}
   .header-text h1{font-size:2rem;}
@@ -109,15 +112,11 @@ body::before{content:'';position:fixed;inset:0;
 .login-box input{width:100%;background:rgba(255,255,255,0.08);border:1px solid var(--border);color:#fff;padding:12px 16px;border-radius:8px;font-family:'Barlow',sans-serif;font-size:1rem;margin-bottom:12px;text-align:center;letter-spacing:0.1em;}
 .login-box input:focus{outline:none;border-color:var(--green-light);}
 .login-error{color:#ff6060;font-size:0.83rem;margin-top:8px;min-height:20px;}
-.gh-config input{width:100%;margin:4px 0 8px;background:rgba(255,255,255,0.08);border:1px solid var(--border);color:#fff;padding:7px 10px;border-radius:6px;font-family:monospace;font-size:0.85rem;}
-.gh-config input:focus{outline:none;border-color:var(--green-light);}
 .gh-note{font-size:0.82rem;color:var(--text-dim);line-height:1.6;margin-bottom:10px;}
 .gh-note strong{color:var(--gold);}
 </style>
 </head>
 <body>
-
-<!-- LOGIN OVERLAY -->
 <div id="login-overlay">
   <div class="login-box">
     <h2>Admin Access</h2>
@@ -128,13 +127,10 @@ body::before{content:'';position:fixed;inset:0;
     <div class="login-error" id="pw-error"></div>
   </div>
 </div>
-
-<!-- ADMIN BAR -->
 <div class="admin-bar">
   <div class="admin-badge">🔒 Admin Mode — League Manager</div>
   <span class="save-status" id="save-status">Not saved yet</span>
 </div>
-
 <div class="container">
 
 <div class="header">
@@ -146,26 +142,23 @@ body::before{content:'';position:fixed;inset:0;
   </div>
 </div>
 
-
 <div class="section-title">⚙️ Update League Data</div>
-<div class="notice">✏️ Changes here update <strong>data.json</strong> in your GitHub repo. Everyone sees the changes immediately after pushing live.</div>
+<div class="notice">✏️ Make your changes below then click <strong>🚀 Push Changes Live</strong> to update the public dashboard.</div>
 
-<!-- GitHub config -->
 <div class="add-form">
   <div class="section-title" style="font-size:1.05rem;margin-bottom:10px;">GitHub Connection</div>
   <div class="gh-note"><strong>One-time setup:</strong> Enter your GitHub details. Saved only in your browser.</div>
   <div class="form-grid">
-    <div class="form-group"><label>GitHub Username</label><input type="text" id="gh-user" placeholder="e.g. fitbawadmin"></div>
-    <div class="form-group"><label>Repository Name</label><input type="text" id="gh-repo" placeholder="e.g. fitbaw"></div>
+    <div class="form-group"><label>GitHub Username</label><input type="text" id="gh-user" placeholder="DarrenFTS"></div>
+    <div class="form-group"><label>Repository Name</label><input type="text" id="gh-repo" placeholder="ScottishFitbaw"></div>
   </div>
   <div class="form-group" style="margin-top:12px;">
-    <label>Personal Access Token <small style="color:var(--text-dim);font-weight:400">(Settings → Developer settings → Fine-grained tokens → Contents: Read &amp; Write)</small></label>
+    <label>Personal Access Token</label>
     <input type="password" id="gh-token" placeholder="github_pat_..." style="background:rgba(255,255,255,0.08);border:1px solid var(--border);color:#fff;padding:8px 11px;border-radius:6px;font-family:monospace;font-size:0.88rem;">
   </div>
   <button class="btn btn-gold" id="save-gh-btn" style="margin-top:14px;">Save Connection Details</button>
 </div>
 
-<!-- Update player totals -->
 <div class="add-form">
   <div class="section-title" style="font-size:1.05rem;margin-bottom:6px;">Update Player Totals</div>
   <p style="font-size:0.86rem;color:var(--text-dim);margin-bottom:10px;">Load a player, edit their running totals, then apply.</p>
@@ -173,17 +166,16 @@ body::before{content:'';position:fixed;inset:0;
     <div class="form-group">
       <label>Player</label>
       <select id="edit-player">
-        <option>Darren</option><option>Callum</option><option>Rodger</option>
-        <option>Steve</option><option>Chris</option><option>Dean</option>
-        <option>Scott</option><option>Jamie</option>
+        <option>Callum</option><option>Chris</option><option>Darren</option><option>Dean</option>
+        <option>Jamie</option><option>Rodger</option><option>Scott</option><option>Steve</option>
       </select>
     </div>
-    <div class="form-group"><label>Played</label><input type="number" id="edit-played" min="0"></div>
-    <div class="form-group"><label>Home Wins (1pt)</label><input type="number" id="edit-home" min="0"></div>
-    <div class="form-group"><label>Draws (3pt)</label><input type="number" id="edit-draw" min="0"></div>
-    <div class="form-group"><label>Away Wins (2pt)</label><input type="number" id="edit-away" min="0"></div>
-    <div class="form-group"><label>Correct Scores (5pt)</label><input type="number" id="edit-cs" min="0"></div>
-    <div class="form-group"><label>Bonus Points</label><input type="number" id="edit-bonus" min="0"></div>
+    <div class="form-group"><label>Played</label><input type="number" id="edit-played" min="0" value="0"></div>
+    <div class="form-group"><label>Home Wins (1pt)</label><input type="number" id="edit-home" min="0" value="0"></div>
+    <div class="form-group"><label>Draws (3pt)</label><input type="number" id="edit-draw" min="0" value="0"></div>
+    <div class="form-group"><label>Away Wins (2pt)</label><input type="number" id="edit-away" min="0" value="0"></div>
+    <div class="form-group"><label>Correct Scores (5pt)</label><input type="number" id="edit-cs" min="0" value="0"></div>
+    <div class="form-group"><label>Bonus Points</label><input type="number" id="edit-bonus" min="0" value="0"></div>
   </div>
   <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
     <button class="btn btn-gold" id="load-btn">Load Player</button>
@@ -191,7 +183,6 @@ body::before{content:'';position:fixed;inset:0;
   </div>
 </div>
 
-<!-- Add weekly selections -->
 <div class="add-form">
   <div class="section-title" style="font-size:1.05rem;margin-bottom:6px;">Add Weekly Selections</div>
   <p style="font-size:0.86rem;color:var(--text-dim);margin-bottom:10px;">Enter week number then fill in each player's selection, score and points.</p>
@@ -207,14 +198,12 @@ body::before{content:'';position:fixed;inset:0;
   <button class="btn btn-primary" id="save-week-btn" style="margin-top:12px;">Add to Selections</button>
 </div>
 
-<!-- Push live -->
 <div class="add-form">
   <div class="section-title" style="font-size:1.05rem;margin-bottom:6px;">Publish to Live Site</div>
-  <p style="font-size:0.86rem;color:var(--text-dim);margin-bottom:12px;">Once all changes are made, push live. Updates <code style="color:var(--gold)">data.json</code> in your repo — public dashboard refreshes within ~30 seconds.</p>
+  <p style="font-size:0.86rem;color:var(--text-dim);margin-bottom:12px;">Push all changes live. Public dashboard updates within ~30 seconds.</p>
   <button class="btn btn-gold" id="push-btn" style="font-size:1.1rem;padding:12px 32px;">🚀 Push Changes Live</button>
 </div>
 
-<!-- Live preview -->
 <div class="section-title">Preview (current changes)</div>
 
 <div class="tabs" id="tabs">
@@ -222,6 +211,7 @@ body::before{content:'';position:fixed;inset:0;
   <button class="tab-btn" data-tab="selections">📋 Weekly Selections</button>
   <button class="tab-btn" data-tab="bonus">⭐ Season Predictions</button>
   <button class="tab-btn" data-tab="teams">⚽ Teams Picked</button>
+  <button class="tab-btn" data-tab="winners">🥇 Hall of Fame</button>
 </div>
 
 <div id="tab-league" class="tab-content active">
@@ -265,8 +255,9 @@ body::before{content:'';position:fixed;inset:0;
 <div id="tab-bonus" class="tab-content">
   <div class="section-title">Season Predictions</div>
   <div class="bonus-legend">
-    <span><span class="legend-dot legend-correct"></span>Correct pick (5 pts earned)</span>
-    <span><span class="legend-dot legend-wrong"></span>Incorrect pick</span>
+    <span><span class="legend-dot legend-correct"></span>Correct (5 pts)</span>
+    <span><span class="legend-dot legend-wrong"></span>Incorrect</span>
+    <span><span class="legend-dot legend-pending"></span>Season in progress</span>
   </div>
   <div class="table-wrap">
     <table class="ftable bonus-table">
@@ -289,7 +280,7 @@ body::before{content:'';position:fixed;inset:0;
 
 <div id="tab-teams" class="tab-content">
   <div class="section-title">Teams Picked This Season</div>
-  <div class="notice">⚽ Every team picked across the full season. Brighter colour = more picks by that player.</div>
+  <div class="notice">⚽ Every team picked across the season. Brighter colour = more picks by that player. Teams with no picks yet shown as —</div>
   <div class="table-wrap">
     <table class="ftable teams-table">
       <thead><tr>
@@ -303,115 +294,120 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 
 
+<div id="tab-winners" class="tab-content">
+  <div class="section-title">Hall of Fame</div>
+  <div class="notice">🥇 The Scottish Fitbaw League champions since the competition began in 2021.</div>
+  <div class="table-wrap">
+    <table class="ftable" style="min-width:400px;">
+      <thead>
+        <tr>
+          <th style="text-align:center;width:60px;">Season</th>
+          <th style="text-align:left;">Champion</th>
+          <th style="text-align:center;">Trophy</th>
+        </tr>
+      </thead>
+      <tbody id="winners-tbody"></tbody>
+    </table>
+  </div>
+</div>
 </div>
 
 <script>
 
 const BONUS = [
-  {player:'Callum', p3:['Hearts','wrong'],    bottom:['Kilmarnock','wrong'],        champ:['Ross County','wrong'],  l1:['ICT','correct'],         l2:['Edinburgh City','wrong'], lc:['Celtic','wrong'],   sc:['Celtic','correct'],  cc:['St Johnstone','wrong'],       sack:['Wilson (Partick Th)','wrong']},
-  {player:'Chris',  p3:['Hibernian','wrong'], bottom:['Livingston','correct'],      champ:['Ross County','wrong'],  l1:['QoS','wrong'],           l2:['Edinburgh City','wrong'], lc:['Rangers','wrong'],  sc:['Rangers','wrong'],   cc:['Raith Rovers','correct'],     sack:['MacLean (St Johnstone)','wrong']},
-  {player:'Darren', p3:['Hibernian','wrong'], bottom:['Livingston','correct'],      champ:['Ross County','wrong'],  l1:['ICT','correct'],         l2:['Spartans','wrong'],       lc:['Aberdeen','wrong'], sc:['Hibernian','wrong'], cc:['Raith Rovers','correct'],     sack:['Pressley (Dundee)','wrong']},
-  {player:'Dean',   p3:['Hibernian','wrong'], bottom:['Livingston','correct'],      champ:['Dunfermline','wrong'],  l1:['ICT','correct'],         l2:['Edinburgh City','wrong'], lc:['Hibernian','wrong'],sc:['Celtic','correct'],  cc:['Ross County','wrong'],        sack:['Thelin (Aberdeen)','wrong']},
-  {player:'Jamie',  p3:['Rangers','correct'], bottom:['Falkirk','wrong'],           champ:['St Johnstone','correct'],l1:['Alloa','wrong'],        l2:['Edinburgh City','wrong'], lc:['Celtic','wrong'],   sc:['Celtic','correct'],  cc:['Ross County','wrong'],        sack:['Thelin (Aberdeen)','wrong']},
-  {player:'Rodger', p3:['Aberdeen','wrong'],  bottom:['Falkirk','wrong'],           champ:['Ross County','wrong'],  l1:['ICT','correct'],         l2:['East Kilbride','correct'],lc:['Celtic','wrong'],   sc:['Celtic','correct'],  cc:['Ayr Utd','wrong'],            sack:['Wilson (Partick Th)','wrong']},
-  {player:'Scott',  p3:['Hearts','wrong'],    bottom:['Livingston','correct'],      champ:['Ross County','wrong'],  l1:['QoS','wrong'],           l2:['East Kilbride','correct'],lc:['Celtic','wrong'],   sc:['Hearts','wrong'],    cc:['St Johnstone','wrong'],       sack:['Pressley (Dundee)','wrong']},
-  {player:'Steve',  p3:['Hearts','wrong'],    bottom:['Livingston','correct'],      champ:['St Johnstone','correct'],l1:['QoS','wrong'],          l2:['Edinburgh City','wrong'], lc:['Rangers','wrong'],  sc:['Celtic','correct'],  cc:['Ross County','wrong'],        sack:['Askou (Motherwell)','wrong']},
+  {player:'Callum', p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
+  {player:'Chris',  p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
+  {player:'Darren', p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
+  {player:'Dean',   p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
+  {player:'Jamie',  p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
+  {player:'Rodger', p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
+  {player:'Scott',  p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
+  {player:'Steve',  p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
 ];
 
 
 const TEAMS = [
-  {team:'DRAW',             total:57, Callum:14,Chris:9, Darren:10,Dean:5, Jamie:6, Rodger:0, Scott:12,Steve:1},
-  {team:'St. Johnstone',    total:16, Callum:2, Chris:1, Darren:3, Dean:0, Jamie:2, Rodger:2, Scott:2, Steve:4},
-  {team:'East Kilbride',    total:16, Callum:3, Chris:0, Darren:1, Dean:2, Jamie:2, Rodger:2, Scott:3, Steve:3},
-  {team:'Hearts',           total:17, Callum:3, Chris:2, Darren:1, Dean:1, Jamie:4, Rodger:1, Scott:2, Steve:3},
-  {team:'Inverness',        total:15, Callum:2, Chris:0, Darren:4, Dean:1, Jamie:1, Rodger:2, Scott:2, Steve:3},
-  {team:'Spartans',         total:15, Callum:3, Chris:0, Darren:2, Dean:1, Jamie:2, Rodger:3, Scott:2, Steve:2},
-  {team:'Rangers',          total:16, Callum:0, Chris:2, Darren:5, Dean:2, Jamie:0, Rodger:2, Scott:4, Steve:1},
-  {team:'Partick Th',       total:13, Callum:1, Chris:4, Darren:0, Dean:0, Jamie:3, Rodger:1, Scott:2, Steve:2},
-  {team:'Hibs',             total:13, Callum:0, Chris:1, Darren:2, Dean:5, Jamie:0, Rodger:3, Scott:0, Steve:2},
-  {team:'Celtic',           total:12, Callum:0, Chris:1, Darren:2, Dean:2, Jamie:0, Rodger:3, Scott:2, Steve:2},
-  {team:'Alloa',            total:10, Callum:1, Chris:0, Darren:1, Dean:1, Jamie:2, Rodger:0, Scott:2, Steve:3},
-  {team:'Raith',            total:10, Callum:0, Chris:1, Darren:1, Dean:1, Jamie:3, Rodger:2, Scott:1, Steve:1},
-  {team:'Motherwell',       total:10, Callum:2, Chris:2, Darren:1, Dean:0, Jamie:1, Rodger:0, Scott:2, Steve:2},
-  {team:'QOS',              total:10, Callum:2, Chris:0, Darren:2, Dean:1, Jamie:1, Rodger:2, Scott:0, Steve:2},
-  {team:'Stenhousemuir',    total:10, Callum:2, Chris:0, Darren:1, Dean:2, Jamie:1, Rodger:1, Scott:1, Steve:2},
-  {team:'Arbroath',         total:9,  Callum:0, Chris:3, Darren:0, Dean:2, Jamie:1, Rodger:0, Scott:1, Steve:2},
-  {team:'Ross Co',          total:8,  Callum:4, Chris:0, Darren:1, Dean:1, Jamie:0, Rodger:2, Scott:0, Steve:0},
-  {team:'Falkirk',          total:8,  Callum:0, Chris:1, Darren:0, Dean:3, Jamie:2, Rodger:2, Scott:0, Steve:0},
-  {team:'Hamilton',         total:7,  Callum:0, Chris:1, Darren:2, Dean:1, Jamie:0, Rodger:3, Scott:0, Steve:0},
-  {team:'Aberdeen',         total:8,  Callum:0, Chris:0, Darren:0, Dean:2, Jamie:0, Rodger:2, Scott:2, Steve:2},
-  {team:'Kilmarnock',       total:7,  Callum:0, Chris:2, Darren:0, Dean:0, Jamie:0, Rodger:1, Scott:2, Steve:2},
-  {team:'Peterhead',        total:5,  Callum:0, Chris:0, Darren:1, Dean:2, Jamie:1, Rodger:1, Scott:0, Steve:0},
-  {team:'St.Mirren',        total:5,  Callum:0, Chris:3, Darren:0, Dean:0, Jamie:1, Rodger:0, Scott:0, Steve:1},
-  {team:'Dunfermline',      total:7,  Callum:0, Chris:4, Darren:0, Dean:2, Jamie:0, Rodger:1, Scott:0, Steve:0},
-  {team:'Ayr',              total:5,  Callum:0, Chris:2, Darren:0, Dean:0, Jamie:0, Rodger:1, Scott:1, Steve:1},
-  {team:'Livingston',       total:4,  Callum:2, Chris:1, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:1},
-  {team:'Morton',           total:4,  Callum:1, Chris:0, Darren:1, Dean:0, Jamie:1, Rodger:1, Scott:0, Steve:0},
-  {team:'Kelty',            total:2,  Callum:0, Chris:0, Darren:1, Dean:0, Jamie:1, Rodger:0, Scott:0, Steve:0},
-  {team:'Annan',            total:2,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:1, Rodger:1, Scott:0, Steve:0},
-  {team:'East Fife',        total:2,  Callum:0, Chris:1, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:1, Steve:0},
-  {team:'Edinburgh',        total:3,  Callum:0, Chris:0, Darren:1, Dean:1, Jamie:1, Rodger:0, Scott:0, Steve:0},
-  {team:'Linlithgow',       total:2,  Callum:1, Chris:1, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Dundee Utd',       total:3,  Callum:0, Chris:0, Darren:0, Dean:1, Jamie:1, Rodger:1, Scott:0, Steve:0},
-  {team:'Airdrie',          total:2,  Callum:2, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Montrose',         total:2,  Callum:0, Chris:0, Darren:0, Dean:2, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Dundee',           total:2,  Callum:0, Chris:0, Darren:0, Dean:1, Jamie:1, Rodger:0, Scott:0, Steve:0},
-  {team:'Clyde',            total:2,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:1, Rodger:1, Scott:0, Steve:0},
-  {team:'Elgin',            total:2,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:1, Rodger:0, Scott:0, Steve:1},
-  {team:'Cove',             total:2,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:1, Scott:0, Steve:1},
-  {team:'Kilmarnock B',     total:1,  Callum:0, Chris:1, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Celtic B',         total:1,  Callum:0, Chris:0, Darren:1, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Motherwell B',     total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:1, Rodger:0, Scott:0, Steve:0},
-  {team:'St Mirren B',      total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:1, Scott:0, Steve:0},
-  {team:'Hearts B',         total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:1, Steve:0},
-  {team:'Brechin',          total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:1, Rodger:0, Scott:0, Steve:0},
-  {team:'East Stirling',    total:1,  Callum:0, Chris:0, Darren:0, Dean:1, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Dumbarton',        total:1,  Callum:0, Chris:0, Darren:0, Dean:1, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Stirling',         total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:1, Scott:0, Steve:0},
-  {team:'Stirling Uni',     total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:1, Rodger:0, Scott:0, Steve:0},
-  {team:'Buckie',           total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:1, Rodger:0, Scott:0, Steve:0},
-  {team:'Clydebank',        total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:1, Scott:0, Steve:0},
-  {team:'Queens Park',      total:1,  Callum:0, Chris:1, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Camelon',          total:1,  Callum:0, Chris:0, Darren:1, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Stranraer',        total:1,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:1},
-  {team:'Forfar',           total:1,  Callum:0, Chris:1, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:"Banks O Dee",      total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:"Bo'ness",          total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Bonnyrigg',        total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Broomhill',        total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Caledonian Braves',total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Civil Service',    total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Cowdenbeath',      total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Darvel',           total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Formartine',       total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Hibs B',           total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
-  {team:'Irvine Meadows',   total:0,  Callum:0, Chris:0, Darren:0, Dean:0, Jamie:0, Rodger:0, Scott:0, Steve:0},
+  {team:'DRAW',             total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'St. Johnstone',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'East Kilbride',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Hearts',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Inverness',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Spartans',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Rangers',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Partick Th',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Hibs',             total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Celtic',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Alloa',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Raith',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Motherwell',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'QOS',              total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Stenhousemuir',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Arbroath',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Ross Co',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Falkirk',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Hamilton',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Aberdeen',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Kilmarnock',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Peterhead',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'St.Mirren',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Dunfermline',      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Ayr',              total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Livingston',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Morton',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Kelty',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Annan',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'East Fife',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Edinburgh',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Linlithgow',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Dundee Utd',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Airdrie',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Montrose',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Dundee',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Clyde',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Elgin',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Cove',             total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Kilmarnock B',     total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Celtic B',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Motherwell B',     total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'St Mirren B',      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Hearts B',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Brechin',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'East Stirling',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Dumbarton',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Stirling',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Stirling Uni',     total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Buckie',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Clydebank',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Queens Park',      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Camelon',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Stranraer',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Forfar',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:"Banks O Dee",      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:"Bo'ness",          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Bonnyrigg',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Broomhill',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Caledonian Braves',total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Civil Service',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Cowdenbeath',      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Darvel',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Formartine',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Hibs B',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
+  {team:'Irvine Meadows',   total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Rodger:0,Scott:0,Steve:0},
 ];
 
 
 const FALLBACK = {
   league:[
-    {player:'Darren',played:45,home:6,draw:5,away:8,cs:6,bonus:15},
-    {player:'Callum',played:45,home:1,draw:9,away:10,cs:3,bonus:10},
-    {player:'Rodger',played:45,home:0,draw:0,away:20,cs:2,bonus:10},
-    {player:'Steve', played:45,home:2,draw:1,away:19,cs:0,bonus:10},
-    {player:'Chris', played:45,home:3,draw:2,away:11,cs:0,bonus:10},
-    {player:'Dean',  played:44,home:5,draw:0,away:10,cs:1,bonus:10},
-    {player:'Scott', played:45,home:0,draw:1,away:13,cs:0,bonus:10},
-    {player:'Jamie', played:45,home:1,draw:0,away:8, cs:1,bonus:10},
+    {player:'Callum',played:0,home:0,draw:0,away:0,cs:0,bonus:0},
+    {player:'Chris', played:0,home:0,draw:0,away:0,cs:0,bonus:0},
+    {player:'Darren',played:0,home:0,draw:0,away:0,cs:0,bonus:0},
+    {player:'Dean',  played:0,home:0,draw:0,away:0,cs:0,bonus:0},
+    {player:'Jamie', played:0,home:0,draw:0,away:0,cs:0,bonus:0},
+    {player:'Rodger',played:0,home:0,draw:0,away:0,cs:0,bonus:0},
+    {player:'Scott', played:0,home:0,draw:0,away:0,cs:0,bonus:0},
+    {player:'Steve', played:0,home:0,draw:0,away:0,cs:0,bonus:0},
   ],
-  weeks:[
-    {week:45,selections:[
-      {player:'Callum',selection:'Celtic draw',     score:'2-2',bonus:0,pts:0},
-      {player:'Chris', selection:'Dunfermline away',score:'1-0',bonus:0,pts:0},
-      {player:'Darren',selection:'Hibs home',       score:'2-1',bonus:0,pts:0},
-      {player:'Dean',  selection:'Celtic home',     score:'3-1',bonus:0,pts:6},
-      {player:'Jamie', selection:'Edinburgh home',  score:'2-1',bonus:0,pts:1},
-      {player:'Rodger',selection:'Aberdeen away',   score:'2-1',bonus:0,pts:0},
-      {player:'Scott', selection:'Rangers away',    score:'3-1',bonus:0,pts:2},
-      {player:'Steve', selection:'Hearts away',     score:'3-2',bonus:0,pts:0},
-    ]}
-  ]
+  weeks:[]
 };
 
 
@@ -421,14 +417,14 @@ function calcPts(p){return (p.home||0)*1+(p.draw||0)*3+(p.away||0)*2+(p.cs||0)*5
 
 function renderLeague(state, container){
   const rows = state.league.map(p=>({...p,points:calcPts(p)})).sort((a,b)=>b.points-a.points);
-  const maxPts = rows[0]?rows[0].points:1;
+  const maxPts = rows[0]?Math.max(rows[0].points,1):1;
   container.querySelector('#league-tbody').innerHTML = rows.map((p,i)=>{
     const pos=i+1, pc=pos===1?'pos-1':pos===2?'pos-2':pos===3?'pos-3':'pos-o';
     const bw=Math.round((p.points/maxPts)*100);
     return `<tr>
       <td><span class="pos-badge ${pc}">${pos}</span></td>
       <td style="text-align:left"><span class="player-name">${p.player}</span></td>
-      <td>${p.played}</td>
+      <td>${p.played||0}</td>
       <td class="home-cell">${p.home||0}</td>
       <td class="draw-cell">${p.draw||0}</td>
       <td class="away-cell">${p.away||0}</td>
@@ -442,31 +438,30 @@ function renderLeague(state, container){
   const sc=container.querySelector('#stats-cards');
   if(sc) sc.innerHTML=`
     <div class="stat-card"><div class="stat-card-label">Weeks Played</div><div class="stat-card-value">${leader.played||0}</div><div class="stat-card-sub">of the 2026/27 season</div></div>
-    <div class="stat-card"><div class="stat-card-label">Current Leader</div><div class="stat-card-value">${leader.player||'-'}</div><div class="stat-card-sub">${leader.points||0} points total</div></div>
-    <div class="stat-card"><div class="stat-card-label">Leader's Gap</div><div class="stat-card-value">+${gap}</div><div class="stat-card-sub">pts ahead of 2nd place</div></div>
+    <div class="stat-card"><div class="stat-card-label">Current Leader</div><div class="stat-card-value">${leader.points>0?leader.player:'—'}</div><div class="stat-card-sub">${leader.points>0?leader.points+' points total':'Season not started'}</div></div>
+    <div class="stat-card"><div class="stat-card-label">Leader's Gap</div><div class="stat-card-value">${leader.points>0?'+'+gap:'—'}</div><div class="stat-card-sub">pts ahead of 2nd place</div></div>
     <div class="stat-card"><div class="stat-card-label">Correct Scores</div><div class="stat-card-value">${totalCS}</div><div class="stat-card-sub">5-pointers in total</div></div>
     <div class="stat-card"><div class="stat-card-label">Draws Called</div><div class="stat-card-value">${totalD}</div><div class="stat-card-sub">3-pointers across all players</div></div>
     <div class="stat-card"><div class="stat-card-label">Players</div><div class="stat-card-value">${rows.length}</div><div class="stat-card-sub">competing this season</div></div>`;
 }
 
 function renderBonus(container){
-  const fields = ['p3','bottom','champ','l1','l2','lc','sc','cc','sack'];
+  const fields=['p3','bottom','champ','l1','l2','lc','sc','cc','sack'];
   container.querySelector('#bonus-tbody').innerHTML = BONUS.map(b=>`<tr>
     <td style="text-align:left"><strong>${b.player}</strong></td>
-    ${fields.map(f=>{
-      const [val,status]=b[f];
-      return `<td><span class="bc-${status}">${val}</span></td>`;
-    }).join('')}
+    ${fields.map(f=>{const [val,status]=b[f];return `<td><span class="bc-${status}">${val}</span></td>`;}).join('')}
   </tr>`).join('');
 }
 
 function heatCls(v){if(!v)return 'heat-0';if(v<=1)return 'heat-1';if(v<=2)return 'heat-2';if(v<=3)return 'heat-3';if(v<=4)return 'heat-4';return 'heat-5';}
 
 function renderTeams(container){
-  const sorted=[...TEAMS].sort((a,b)=>b.total-a.total);
+  const active=TEAMS.filter(t=>t.total>0);
+  const inactive=TEAMS.filter(t=>t.total===0);
+  const sorted=[...active.sort((a,b)=>b.total-a.total),...inactive];
   container.querySelector('#teams-tbody').innerHTML = sorted.map(t=>`<tr>
     <td style="text-align:left">${t.team}</td>
-    <td><strong>${t.total||'—'}</strong></td>
+    <td><strong>${t.total>0?t.total:'—'}</strong></td>
     ${PLAYERS.map(p=>{const v=t[p]||0;return `<td class="pick-cell ${heatCls(v)}">${v>0?v:'—'}</td>`;}).join('')}
   </tr>`).join('');
 }
@@ -474,6 +469,11 @@ function renderTeams(container){
 function setupSelections(state, container){
   const sel=container.querySelector('#week-select');
   const weeks=[...state.weeks].sort((a,b)=>b.week-a.week);
+  if(!weeks.length){
+    container.querySelector('#selections-tbody').innerHTML='<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--text-dim);">No weekly selections yet — check back after Week 1!</td></tr>';
+    sel.innerHTML='<option>No weeks yet</option>';
+    return;
+  }
   sel.innerHTML=weeks.map(w=>`<option value="${w.week}">Week ${w.week}</option>`).join('');
   function renderWeek(){
     const wNum=parseInt(sel.value);
@@ -495,6 +495,41 @@ function setupSelections(state, container){
   renderWeek();
 }
 
+
+const HALL_OF_FAME = [
+  {season:'2021/22', champion:'Scott Gourlay',   status:'champion'},
+  {season:'2022/23', champion:'Jamie Young',     status:'champion'},
+  {season:'2023/24', champion:'Roger Gardiner',  status:'champion'},
+  {season:'2024/25', champion:'Roger Gardiner',  status:'champion'},
+  {season:'2025/26', champion:'Darren Summers',  status:'champion'},
+  {season:'2026/27', champion:'???',             status:'current'},
+];
+
+function renderWinners(container) {
+  const tbody = container.querySelector('#winners-tbody');
+  if (!tbody) return;
+  tbody.innerHTML = HALL_OF_FAME.map((r, i) => {
+    const isCurrent = r.status === 'current';
+    const rowStyle = isCurrent ? 'background:rgba(240,192,64,0.06);' : '';
+    const trophy = isCurrent
+      ? '<span style="font-size:1.4rem;">🏆</span>'
+      : i === HALL_OF_FAME.length - 2
+        ? '<span style="font-size:1.4rem;">🥇</span>'
+        : '<span style="font-size:1.4rem;">🥇</span>';
+    const nameStyle = isCurrent
+      ? 'color:var(--text-dim);font-style:italic;font-size:1rem;'
+      : 'font-size:1.1rem;font-weight:700;color:var(--gold);font-family:Bebas Neue,sans-serif;letter-spacing:0.05em;';
+    const seasonStyle = isCurrent
+      ? 'color:var(--text-dim);font-style:italic;'
+      : 'color:var(--off-white);font-weight:600;';
+    return `<tr style="${rowStyle}">
+      <td style="text-align:center;${seasonStyle}">${r.season}</td>
+      <td style="text-align:left;${nameStyle}">${r.champion}</td>
+      <td style="text-align:center;">${isCurrent ? '<span style="font-size:0.8rem;color:var(--text-dim);font-style:italic;">Season in progress…</span>' : trophy}</td>
+    </tr>`;
+  }).join('');
+}
+
 function setupTabs(container, state){
   const tabBar=container.querySelector('#tabs');
   tabBar.addEventListener('click',function(e){
@@ -508,17 +543,14 @@ function setupTabs(container, state){
     if(tabName==='selections') setupSelections(state,container);
     if(tabName==='bonus')      renderBonus(container);
     if(tabName==='teams')      renderTeams(container);
+    if(tabName==='winners')    renderWinners(container);
   });
   renderLeague(state,container);
 }
 
 
-// ── PASSWORD — SHA-256 of "fitbaw2627" ──
-const HASH = 'eb41a3e6878c7d5c374893a9d6424abe190abfe9b1086b1be7afcfc36a9fdc0f';
-async function sha256(msg){
-  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(msg));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
+const HASH='eb41a3e6878c7d5c374893a9d6424abe190abfe9b1086b1be7afcfc36a9fdc0f';
+async function sha256(msg){const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(msg));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}
 document.getElementById('pw-btn').addEventListener('click',async()=>{
   const h=await sha256(document.getElementById('pw-input').value);
   if(h===HASH){document.getElementById('login-overlay').style.display='none';init();}
@@ -526,7 +558,6 @@ document.getElementById('pw-btn').addEventListener('click',async()=>{
 });
 document.getElementById('pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('pw-btn').click();});
 
-// ── GITHUB CONFIG ──
 function loadGH(){return{user:localStorage.getItem('gh_user')||'',repo:localStorage.getItem('gh_repo')||'',token:localStorage.getItem('gh_token')||''};}
 document.getElementById('save-gh-btn').addEventListener('click',()=>{
   localStorage.setItem('gh_user',document.getElementById('gh-user').value.trim());
@@ -538,26 +569,19 @@ document.getElementById('save-gh-btn').addEventListener('click',()=>{
 let state;
 function init(){
   const gh=loadGH();
-  document.getElementById('gh-user').value=gh.user;
-  document.getElementById('gh-repo').value=gh.repo;
+  document.getElementById('gh-user').value=gh.user||'DarrenFTS';
+  document.getElementById('gh-repo').value=gh.repo||'ScottishFitbaw';
   document.getElementById('gh-token').value=gh.token;
-  if(gh.user&&gh.repo&&gh.token){
-    fetch(`https://raw.githubusercontent.com/${gh.user}/${gh.repo}/main/data.json?t=${Date.now()}`)
-      .then(r=>r.ok?r.json():null)
-      .then(data=>{
-        state=data||JSON.parse(JSON.stringify(FALLBACK));
-        setupTabs(document,state); renderManage();
-        setStatus('Loaded from GitHub ✓','ok');
-      }).catch(()=>{
-        state=JSON.parse(JSON.stringify(FALLBACK));
-        setupTabs(document,state); renderManage();
-        setStatus('Could not reach GitHub — using built-in data','err');
-      });
-  }else{
+  const url=`https://raw.githubusercontent.com/${gh.user||'DarrenFTS'}/${gh.repo||'ScottishFitbaw'}/main/data.json?t=${Date.now()}`;
+  fetch(url).then(r=>r.ok?r.json():null).then(data=>{
+    state=data||JSON.parse(JSON.stringify(FALLBACK));
+    setupTabs(document,state);renderManage();
+    setStatus(data?'Loaded from GitHub ✓':'Using fresh season data','ok');
+  }).catch(()=>{
     state=JSON.parse(JSON.stringify(FALLBACK));
-    setupTabs(document,state); renderManage();
-    setStatus('GitHub not configured — changes won\'t be saved online','err');
-  }
+    setupTabs(document,state);renderManage();
+    setStatus('Could not reach GitHub — using fresh season data','err');
+  });
 }
 
 function setStatus(msg,cls){const el=document.getElementById('save-status');el.textContent=msg;el.className='save-status '+(cls||'');}
@@ -601,7 +625,7 @@ document.getElementById('save-week-btn').addEventListener('click',()=>{
   const wNum=parseInt(document.getElementById('new-week-num').value);
   if(!wNum){alert('Enter a week number');return;}
   const selections=PLAYERS.map(p=>({
-    player:p, selection:document.getElementById('sel-'+p).value||'—',
+    player:p,selection:document.getElementById('sel-'+p).value||'—',
     score:document.getElementById('score-'+p).value||'—',
     bonus:parseInt(document.getElementById('bonus-'+p).value)||0,
     pts:parseInt(document.getElementById('pts-'+p).value)||0,
@@ -624,18 +648,11 @@ document.getElementById('push-btn').addEventListener('click',async()=>{
     const getRes=await fetch(url,{headers});
     if(getRes.ok){const gd=await getRes.json();sha=gd.sha||'';}
     const content=btoa(unescape(encodeURIComponent(JSON.stringify(state,null,2))));
-    const body=JSON.stringify({message:'Update league data',content,...(sha?{sha}:{})});
+    const body=JSON.stringify({message:'Update league data — 2026/27',content,...(sha?{sha}:{})});
     const putRes=await fetch(url,{method:'PUT',headers,body});
     if(putRes.ok)setStatus('✅ Pushed live! Site updates in ~30 seconds.','ok');
     else{const err=await putRes.json();setStatus('❌ GitHub error: '+(err.message||putRes.status),'err');}
   }catch(e){setStatus('❌ Network error: '+e.message,'err');}
-});
-
-document.getElementById('save-gh-btn').addEventListener('click',()=>{
-  localStorage.setItem('gh_user',document.getElementById('gh-user').value.trim());
-  localStorage.setItem('gh_repo',document.getElementById('gh-repo').value.trim());
-  localStorage.setItem('gh_token',document.getElementById('gh-token').value.trim());
-  setStatus('GitHub details saved ✓','ok');
 });
 </script>
 </body>
