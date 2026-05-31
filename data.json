@@ -1,34 +1,7 @@
 {
   "league": [
     {
-      "player": "Darren",
-      "played": 0,
-      "home": 0,
-      "draw": 0,
-      "away": 0,
-      "cs": 0,
-      "bonus": 0
-    },
-    {
       "player": "Callum",
-      "played": 0,
-      "home": 0,
-      "draw": 0,
-      "away": 0,
-      "cs": 0,
-      "bonus": 0
-    },
-    {
-      "player": "Rodger",
-      "played": 0,
-      "home": 0,
-      "draw": 0,
-      "away": 0,
-      "cs": 0,
-      "bonus": 0
-    },
-    {
-      "player": "Steve",
       "played": 0,
       "home": 0,
       "draw": 0,
@@ -46,7 +19,34 @@
       "bonus": 0
     },
     {
+      "player": "Darren",
+      "played": 0,
+      "home": 0,
+      "draw": 0,
+      "away": 0,
+      "cs": 0,
+      "bonus": 0
+    },
+    {
       "player": "Dean",
+      "played": 0,
+      "home": 0,
+      "draw": 0,
+      "away": 0,
+      "cs": 0,
+      "bonus": 0
+    },
+    {
+      "player": "Jamie",
+      "played": 0,
+      "home": 0,
+      "draw": 0,
+      "away": 0,
+      "cs": 0,
+      "bonus": 0
+    },
+    {
+      "player": "Roger",
       "played": 0,
       "home": 0,
       "draw": 0,
@@ -64,7 +64,43 @@
       "bonus": 0
     },
     {
-      "player": "Jamie",
+      "player": "Steve",
+      "played": 0,
+      "home": 0,
+      "draw": 0,
+      "away": 0,
+      "cs": 0,
+      "bonus": 0
+    },
+    {
+      "player": "Davie",
+      "played": 0,
+      "home": 0,
+      "draw": 0,
+      "away": 0,
+      "cs": 0,
+      "bonus": 0
+    },
+    {
+      "player": "Rhys",
+      "played": 0,
+      "home": 0,
+      "draw": 0,
+      "away": 0,
+      "cs": 0,
+      "bonus": 0
+    },
+    {
+      "player": "Stevie",
+      "played": 0,
+      "home": 0,
+      "draw": 0,
+      "away": 0,
+      "cs": 0,
+      "bonus": 0
+    },
+    {
+      "player": "Sean",
       "played": 0,
       "home": 0,
       "draw": 0,
@@ -75,122 +111,89 @@
   ],
   "weeks": [
     {
-      "week": 45,
-      "selections": [
-        {
-          "player": "Callum",
-          "selection": "Celtic draw",
-          "score": "2-2",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Chris",
-          "selection": "Dunfermline away",
-          "score": "1-0",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Darren",
-          "selection": "Hibs home",
-          "score": "2-1",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Dean",
-          "selection": "Celtic home",
-          "score": "3-1",
-          "bonus": 0,
-          "pts": 6
-        },
-        {
-          "player": "Jamie",
-          "selection": "Edinburgh home",
-          "score": "2-1",
-          "bonus": 0,
-          "pts": 1
-        },
-        {
-          "player": "Rodger",
-          "selection": "Aberdeen away",
-          "score": "2-1",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Scott",
-          "selection": "Rangers away",
-          "score": "3-1",
-          "bonus": 0,
-          "pts": 2
-        },
-        {
-          "player": "Steve",
-          "selection": "Hearts away",
-          "score": "3-2",
-          "bonus": 0,
-          "pts": 0
-        }
-      ]
-    },
-    {
       "week": 1,
       "selections": [
         {
           "player": "Callum",
-          "selection": "—",
-          "score": "—",
+          "selection": "",
+          "score": "",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Chris",
-          "selection": "—",
-          "score": "—",
+          "selection": "",
+          "score": "",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Darren",
-          "selection": "—",
-          "score": "—",
+          "selection": "",
+          "score": "",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Dean",
-          "selection": "—",
-          "score": "—",
+          "selection": "",
+          "score": "",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Jamie",
-          "selection": "—",
-          "score": "—",
+          "selection": "",
+          "score": "",
           "bonus": 0,
           "pts": 0
         },
         {
-          "player": "Rodger",
-          "selection": "—",
-          "score": "—",
+          "player": "Roger",
+          "selection": "",
+          "score": "",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Scott",
-          "selection": "—",
-          "score": "—",
+          "selection": "",
+          "score": "",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Steve",
-          "selection": "—",
-          "score": "—",
+          "selection": "",
+          "score": "",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "",
+          "score": "",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "",
+          "score": "",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "",
+          "score": "",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Sean",
+          "selection": "",
+          "score": "",
           "bonus": 0,
           "pts": 0
         }
