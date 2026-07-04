@@ -10,15 +10,6 @@
       "bonus": 0
     },
     {
-      "player": "Chris",
-      "played": 0,
-      "home": 0,
-      "draw": 0,
-      "away": 0,
-      "cs": 0,
-      "bonus": 0
-    },
-    {
       "player": "Darren",
       "played": 0,
       "home": 0,
@@ -98,15 +89,6 @@
       "away": 0,
       "cs": 0,
       "bonus": 0
-    },
-    {
-      "player": "Sean",
-      "played": 0,
-      "home": 0,
-      "draw": 0,
-      "away": 0,
-      "cs": 0,
-      "bonus": 0
     }
   ],
   "weeks": [
@@ -115,13 +97,6 @@
       "selections": [
         {
           "player": "Callum",
-          "selection": "",
-          "score": "",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Chris",
           "selection": "",
           "score": "",
           "bonus": 0,
@@ -185,13 +160,6 @@
         },
         {
           "player": "Stevie",
-          "selection": "",
-          "score": "",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Sean",
           "selection": "",
           "score": "",
           "bonus": 0,
