@@ -138,7 +138,7 @@ body::before{content:'';position:fixed;inset:0;
   <div class="header-text">
     <h1>Scottish Fitbaw League</h1>
     <div class="season">Season 2026 / 27</div>
-    <div class="tagline">Prediction League &bull; Est. 2021 &bull; 12 Players &bull; Scottish Football</div>
+    <div class="tagline">Prediction League &bull; Est. 2021 &bull; 10 Players &bull; Scottish Football</div>
   </div>
 </div>
 
@@ -166,9 +166,9 @@ body::before{content:'';position:fixed;inset:0;
     <div class="form-group">
       <label>Player</label>
       <select id="edit-player">
-        <option>Callum</option><option>Chris</option><option>Darren</option><option>Davie</option>
+        <option>Callum</option><option>Darren</option><option>Davie</option>
         <option>Dean</option><option>Jamie</option><option>Roger</option><option>Rhys</option>
-        <option>Scott</option><option>Sean</option><option>Steve</option><option>Stevie</option>
+        <option>Scott</option><option>Steve</option><option>Stevie</option>
       </select>
     </div>
     <div class="form-group"><label>Played</label><input type="number" id="edit-played" min="0" value="0"></div>
@@ -213,6 +213,7 @@ body::before{content:'';position:fixed;inset:0;
   <button class="tab-btn" data-tab="bonus">⭐ Season Predictions</button>
   <button class="tab-btn" data-tab="teams">⚽ Teams Picked</button>
   <button class="tab-btn" data-tab="winners">🥇 Hall of Fame</button>
+  <button class="tab-btn" data-tab="rules">📖 Rules</button>
 </div>
 
 <div id="tab-league" class="tab-content active">
@@ -286,8 +287,8 @@ body::before{content:'';position:fixed;inset:0;
     <table class="ftable teams-table">
       <thead><tr>
         <th style="text-align:left">Team</th><th>Total</th>
-        <th>Callum</th><th>Chris</th><th>Darren</th><th>Dean</th>
-        <th>Jamie</th><th>Roger</th><th>Rhys</th><th>Scott</th><th>Sean</th><th>Steve</th><th>Stevie</th><th>Davie</th>
+        <th>Callum</th><th>Darren</th><th>Dean</th>
+        <th>Jamie</th><th>Roger</th><th>Rhys</th><th>Scott</th><th>Steve</th><th>Stevie</th><th>Davie</th>
       </tr></thead>
       <tbody id="teams-tbody"></tbody>
     </table>
@@ -313,11 +314,71 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 
+
+<div id="tab-rules" class="tab-content">
+  <div class="section-title">Competition Rules</div>
+  <div style="max-width:700px;">
+    <div style="background:rgba(13,61,13,0.7);border:1px solid var(--border);border-radius:10px;padding:28px 32px;margin-bottom:20px;">
+
+      <div style="margin-bottom:24px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:var(--gold);margin-bottom:12px;">&#9200; Weekly Picks</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--green-light);font-size:1.1rem;flex-shrink:0;">&#9658;</span>
+            <span style="font-size:0.97rem;line-height:1.5;">Picks must be submitted between <strong style="color:var(--gold);">Friday 00:00</strong> and <strong style="color:var(--gold);">Saturday 14:59</strong></span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--green-light);font-size:1.1rem;flex-shrink:0;">&#9658;</span>
+            <span style="font-size:0.97rem;line-height:1.5;">If no pick is submitted you <strong style="color:var(--gold);">pass</strong> that week &mdash; no points awarded</span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--green-light);font-size:1.1rem;flex-shrink:0;">&#9658;</span>
+            <span style="font-size:0.97rem;line-height:1.5;">Maximum of <strong style="color:var(--gold);">6 picks per team</strong> over the season &mdash; draw picks are unlimited</span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--green-light);font-size:1.1rem;flex-shrink:0;">&#9658;</span>
+            <span style="font-size:0.97rem;line-height:1.5;">Your weekly picked result <strong style="color:var(--gold);">cannot be the same team or result</strong> as another player who picked before you &mdash; you cannot pick the same game but a different winner</span>
+          </li>
+        </ul>
+      </div>
+
+      <div style="border-top:1px solid var(--border);padding-top:24px;margin-bottom:24px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:var(--gold);margin-bottom:12px;">&#127942; Points System</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;">
+          <div style="background:rgba(125,216,125,0.1);border:1px solid rgba(125,216,125,0.25);border-radius:8px;padding:14px 16px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#7dd87d;line-height:1;">1 pt</div>
+            <div style="font-size:0.82rem;color:var(--text-dim);margin-top:4px;">Home Win</div>
+          </div>
+          <div style="background:rgba(128,196,255,0.1);border:1px solid rgba(128,196,255,0.25);border-radius:8px;padding:14px 16px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#80c4ff;line-height:1;">2 pts</div>
+            <div style="font-size:0.82rem;color:var(--text-dim);margin-top:4px;">Away Win</div>
+          </div>
+          <div style="background:rgba(224,192,96,0.1);border:1px solid rgba(224,192,96,0.25);border-radius:8px;padding:14px 16px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#e0c060;line-height:1;">3 pts</div>
+            <div style="font-size:0.82rem;color:var(--text-dim);margin-top:4px;">Draw</div>
+          </div>
+          <div style="background:rgba(255,159,96,0.1);border:1px solid rgba(255,159,96,0.25);border-radius:8px;padding:14px 16px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#ff9f60;line-height:1;">5 pts</div>
+            <div style="font-size:0.82rem;color:var(--text-dim);margin-top:4px;">Correct Score</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--border);padding-top:24px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:var(--gold);margin-bottom:12px;">&#11088; Bonus Rounds</div>
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="color:var(--green-light);font-size:1.1rem;flex-shrink:0;">&#9658;</span>
+          <span style="font-size:0.97rem;line-height:1.5;">Bonus rounds will be announced <strong style="color:var(--gold);">ad hoc</strong> for cup competitions throughout the season</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 <script>
 
 const BONUS = [
   {player:'Callum', p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
-  {player:'Chris',  p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
   {player:'Darren', p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
   {player:'Dean',   p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
   {player:'Jamie',  p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
@@ -327,84 +388,82 @@ const BONUS = [
   {player:'Davie',  p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
   {player:'Rhys',   p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
   {player:'Stevie', p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
-  {player:'Sean',   p3:['TBC','pending'], bottom:['TBC','pending'], champ:['TBC','pending'], l1:['TBC','pending'], l2:['TBC','pending'], lc:['TBC','pending'], sc:['TBC','pending'], cc:['TBC','pending'], sack:['TBC','pending']},
 ];
 
 
 const TEAMS = [
-  {team:'DRAW',             total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'St. Johnstone',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'East Kilbride',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Hearts',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Inverness',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Spartans',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Rangers',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Partick Th',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Hibs',             total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Celtic',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Alloa',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Raith',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Motherwell',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'QOS',              total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Stenhousemuir',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Arbroath',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Ross Co',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Falkirk',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Hamilton',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Aberdeen',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Kilmarnock',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Peterhead',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'St.Mirren',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Dunfermline',      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Ayr',              total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Livingston',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Morton',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Kelty',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Annan',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'East Fife',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Edinburgh',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Linlithgow',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Dundee Utd',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Airdrie',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Montrose',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Dundee',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Clyde',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Elgin',            total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Cove',             total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Kilmarnock B',     total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Celtic B',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Motherwell B',     total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'St Mirren B',      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Hearts B',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Brechin',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'East Stirling',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Dumbarton',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Stirling',         total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Stirling Uni',     total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Buckie',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Clydebank',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Queens Park',      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Camelon',          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Stranraer',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Forfar',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:"Banks O Dee",      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:"Bo'ness",          total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Bonnyrigg',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Broomhill',        total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Caledonian Braves',total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Civil Service',    total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Cowdenbeath',      total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Darvel',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Formartine',       total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Hibs B',           total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
-  {team:'Irvine Meadows',   total:0, Callum:0,Chris:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0,Sean:0},
+  {team:'DRAW',             total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'St. Johnstone',    total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'East Kilbride',    total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Hearts',           total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Inverness',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Spartans',         total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Rangers',          total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Partick Th',       total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Hibs',             total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Celtic',           total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Alloa',            total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Raith',            total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Motherwell',       total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'QOS',              total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Stenhousemuir',    total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Arbroath',         total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Ross Co',          total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Falkirk',          total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Hamilton',         total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Aberdeen',         total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Kilmarnock',       total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Peterhead',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'St.Mirren',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Dunfermline',      total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Ayr',              total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Livingston',       total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Morton',           total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Kelty',            total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Annan',            total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'East Fife',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Edinburgh',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Linlithgow',       total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Dundee Utd',       total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Airdrie',          total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Montrose',         total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Dundee',           total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Clyde',            total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Elgin',            total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Cove',             total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Kilmarnock B',     total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Celtic B',         total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Motherwell B',     total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'St Mirren B',      total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Hearts B',         total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Brechin',          total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'East Stirling',    total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Dumbarton',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Stirling',         total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Stirling Uni',     total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Buckie',           total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Clydebank',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Queens Park',      total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Camelon',          total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Stranraer',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Forfar',           total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:"Banks O Dee",      total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:"Bo'ness",          total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Bonnyrigg',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Broomhill',        total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Caledonian Braves',total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Civil Service',    total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Cowdenbeath',      total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Darvel',           total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Formartine',       total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Hibs B',           total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
+  {team:'Irvine Meadows',   total:0, Callum:0,Darren:0,Dean:0,Jamie:0,Roger:0,Scott:0,Steve:0,Davie:0,Rhys:0,Stevie:0},
 ];
 
 
 const FALLBACK = {
   league:[
     {player:'Callum',played:0,home:0,draw:0,away:0,cs:0,bonus:0},
-    {player:'Chris', played:0,home:0,draw:0,away:0,cs:0,bonus:0},
     {player:'Darren',played:0,home:0,draw:0,away:0,cs:0,bonus:0},
     {player:'Dean',  played:0,home:0,draw:0,away:0,cs:0,bonus:0},
     {player:'Jamie', played:0,home:0,draw:0,away:0,cs:0,bonus:0},
@@ -414,12 +473,10 @@ const FALLBACK = {
     {player:'Davie', played:0,home:0,draw:0,away:0,cs:0,bonus:0},
     {player:'Rhys',  played:0,home:0,draw:0,away:0,cs:0,bonus:0},
     {player:'Stevie',played:0,home:0,draw:0,away:0,cs:0,bonus:0},
-    {player:'Sean',  played:0,home:0,draw:0,away:0,cs:0,bonus:0},
   ],
   weeks:[
     {week:1,selections:[
       {player:'Callum',selection:'',score:'',bonus:0,pts:0},
-      {player:'Chris', selection:'',score:'',bonus:0,pts:0},
       {player:'Darren',selection:'',score:'',bonus:0,pts:0},
       {player:'Dean',  selection:'',score:'',bonus:0,pts:0},
       {player:'Jamie', selection:'',score:'',bonus:0,pts:0},
@@ -429,13 +486,12 @@ const FALLBACK = {
       {player:'Davie', selection:'',score:'',bonus:0,pts:0},
       {player:'Rhys',  selection:'',score:'',bonus:0,pts:0},
       {player:'Stevie',selection:'',score:'',bonus:0,pts:0},
-      {player:'Sean',  selection:'',score:'',bonus:0,pts:0},
     ]}
   ]
 };
 
 
-const PLAYERS = ['Callum','Chris','Darren','Davie','Dean','Jamie','Roger','Rhys','Scott','Sean','Steve','Stevie'];
+const PLAYERS = ['Callum','Darren','Davie','Dean','Jamie','Roger','Rhys','Scott','Steve','Stevie'];
 
 function calcPts(p){return (p.home||0)*1+(p.draw||0)*3+(p.away||0)*2+(p.cs||0)*5+(p.bonus||0);}
 
@@ -447,7 +503,11 @@ function renderLeague(state, container){
     const bw=Math.round((p.points/maxPts)*100);
     return `<tr>
       <td><span class="pos-badge ${pc}">${pos}</span></td>
-      <td style="text-align:left"><span class="player-name">${p.player}</span></td>
+      <td style="text-align:left">
+        <span class="player-name">${p.player}</span>
+        ${ ['Scott','Jamie','Darren'].includes(p.player) ? '<span title="Previous winner" style="color:var(--gold);font-size:0.7rem;margin-left:5px;letter-spacing:1px;">&#9733;</span>' : '' }
+        ${ p.player === 'Roger' ? '<span title="2x Previous winner" style="color:var(--gold);font-size:0.7rem;margin-left:5px;letter-spacing:1px;">&#9733;&#9733;</span>' : '' }
+      </td>
       <td>${p.played||0}</td>
       <td class="home-cell">${p.home||0}</td>
       <td class="draw-cell">${p.draw||0}</td>
