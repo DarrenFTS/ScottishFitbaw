@@ -382,7 +382,8 @@ const FALLBACK = {
       {player:'Rhys',  selection:'',score:'',bonus:0,pts:0},
       {player:'Stevie',selection:'',score:'',bonus:0,pts:0},
     ]}
-  ]
+  ],
+  teams:[]
 };
 
 
@@ -434,9 +435,10 @@ function renderBonus(container){
 
 function heatCls(v){if(!v)return 'heat-0';if(v<=1)return 'heat-1';if(v<=2)return 'heat-2';if(v<=3)return 'heat-3';if(v<=4)return 'heat-4';return 'heat-5';}
 
-function renderTeams(container){
-  const active=TEAMS.filter(t=>t.total>0);
-  const inactive=TEAMS.filter(t=>t.total===0);
+function renderTeams(container, state){
+  const teams = (state && state.teams) ? state.teams : TEAMS;
+  const active=teams.filter(t=>t.total>0);
+  const inactive=teams.filter(t=>t.total===0);
   const sorted=[...active.sort((a,b)=>b.total-a.total),...inactive];
   container.querySelector('#teams-tbody').innerHTML = sorted.map(t=>`<tr>
     <td style="text-align:left">${t.team}</td>
@@ -522,7 +524,7 @@ function setupTabs(container, state){
     if(tabName==='league')     renderLeague(state,container);
     if(tabName==='selections') setupSelections(state,container);
     if(tabName==='bonus')      renderBonus(container);
-    if(tabName==='teams')      renderTeams(container);
+    if(tabName==='teams')      renderTeams(container, state);
     if(tabName==='winners')    renderWinners(container);
   });
   renderLeague(state,container);
