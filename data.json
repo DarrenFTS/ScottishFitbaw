@@ -97,71 +97,91 @@
       "selections": [
         {
           "player": "Callum",
-          "selection": "",
-          "score": "",
+          "selection": "Ayr A",
+          "team": "Ayr",
+          "had": "A",
+          "score": "2-1",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Darren",
-          "selection": "",
-          "score": "",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Dean",
-          "selection": "",
-          "score": "",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Jamie",
-          "selection": "",
-          "score": "",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Roger",
-          "selection": "",
-          "score": "",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Scott",
-          "selection": "",
-          "score": "",
-          "bonus": 0,
-          "pts": 0
-        },
-        {
-          "player": "Steve",
-          "selection": "",
-          "score": "",
+          "selection": "Rath H",
+          "team": "Rath",
+          "had": "H",
+          "score": "3-0",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Davie",
-          "selection": "",
-          "score": "",
+          "selection": "Draw",
+          "team": "Peterhead",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "—",
+          "team": "",
+          "had": "",
+          "score": "—",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "Falkirk A",
+          "team": "Falkirk",
+          "had": "A",
+          "score": "4-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Ross Co A",
+          "team": "Ross Co",
+          "had": "A",
+          "score": "2-1",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Rhys",
-          "selection": "",
-          "score": "",
+          "selection": "Arbroath A",
+          "team": "Arbroath",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Dundee Utd A",
+          "team": "Dundee Utd",
+          "had": "A",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Dunfermline A",
+          "team": "Dunfermline",
+          "had": "A",
+          "score": "3-1",
           "bonus": 0,
           "pts": 0
         },
         {
           "player": "Stevie",
-          "selection": "",
-          "score": "",
+          "selection": "—",
+          "team": "",
+          "had": "",
+          "score": "—",
           "bonus": 0,
           "pts": 0
         }
@@ -171,10 +191,10 @@
   "teams": [
     {
       "team": "DRAW",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
-      "Davie": 0,
+      "Davie": 1,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
@@ -381,27 +401,27 @@
     },
     {
       "team": "Arbroath",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
-      "Rhys": 0,
+      "Rhys": 1,
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
     },
     {
       "team": "Ross Co",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
-      "Roger": 0,
+      "Roger": 1,
       "Rhys": 0,
       "Scott": 0,
       "Steve": 0,
@@ -409,12 +429,12 @@
     },
     {
       "team": "Falkirk",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
@@ -493,7 +513,7 @@
     },
     {
       "team": "Dunfermline",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -502,13 +522,13 @@
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 0,
+      "Steve": 1,
       "Stevie": 0
     },
     {
       "team": "Ayr",
-      "total": 0,
-      "Callum": 0,
+      "total": 1,
+      "Callum": 1,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
@@ -605,7 +625,7 @@
     },
     {
       "team": "Dundee Utd",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -613,7 +633,7 @@
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
-      "Scott": 0,
+      "Scott": 1,
       "Steve": 0,
       "Stevie": 0
     },
@@ -706,6 +726,20 @@
       "total": 0,
       "Callum": 0,
       "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Rath",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 1,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
