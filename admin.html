@@ -671,9 +671,42 @@ function renderManage(){
 
 
 
-document.getElementById('save-week-btn').addEventListener('click',()=>{
+document.getElementById('save-week-btn').addEventListener('click',async()=>{
   const wNum=parseInt(document.getElementById('new-week-num').value);
   if(!wNum){alert('Enter a week number');return;}
+
+  // ── Always fetch latest data from GitHub before merging ──
+  // This ensures we never overwrite picks made since the page was opened
+  const gh=loadGH();
+  if(gh.user&&gh.repo&&gh.token){
+    try{
+      setStatus('Fetching latest data before saving…','');
+      const latestUrl=`https://raw.githubusercontent.com/${gh.user}/${gh.repo}/main/data.json?t=${Date.now()}`;
+      const latestRes=await fetch(latestUrl);
+      if(latestRes.ok){
+        const latestData=await latestRes.json();
+        // Merge latest weeks into state — keep any weeks from GitHub that we don't have locally
+        if(latestData.weeks){
+          latestData.weeks.forEach(w=>{
+            const localIdx=state.weeks.findIndex(x=>x.week===w.week);
+            if(localIdx<0) state.weeks.push(w); // add weeks we don't have
+            else {
+              // Merge individual player selections from GitHub into local state
+              w.selections.forEach(s=>{
+                const sIdx=state.weeks[localIdx].selections.findIndex(x=>x.player===s.player);
+                if(sIdx<0) state.weeks[localIdx].selections.push(s);
+                else if(s.selection && s.selection!=='' && s.selection!=='—'){
+                  // Only overwrite if GitHub has a real pick (don't overwrite with blanks)
+                  state.weeks[localIdx].selections[sIdx]=s;
+                }
+              });
+            }
+          });
+        }
+        if(latestData.teams) state.teams=latestData.teams;
+      }
+    }catch(e){ /* proceed with local state if fetch fails */ }
+  }
 
   if(!state.teams) state.teams = [];
 
