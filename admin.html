@@ -160,27 +160,31 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 
 <div class="add-form">
-  <div class="section-title" style="font-size:1.05rem;margin-bottom:6px;">Update Player Totals</div>
-  <p style="font-size:0.86rem;color:var(--text-dim);margin-bottom:10px;">Load a player, edit their running totals, then apply.</p>
-  <div class="form-grid">
-    <div class="form-group">
-      <label>Player</label>
-      <select id="edit-player">
-        <option>Callum</option><option>Darren</option><option>Davie</option>
-        <option>Dean</option><option>Jamie</option><option>Roger</option><option>Rhys</option>
-        <option>Scott</option><option>Steve</option><option>Stevie</option>
-      </select>
-    </div>
-    <div class="form-group"><label>Played</label><input type="number" id="edit-played" min="0" value="0"></div>
-    <div class="form-group"><label>Home Wins (1pt)</label><input type="number" id="edit-home" min="0" value="0"></div>
-    <div class="form-group"><label>Draws (3pt)</label><input type="number" id="edit-draw" min="0" value="0"></div>
-    <div class="form-group"><label>Away Wins (2pt)</label><input type="number" id="edit-away" min="0" value="0"></div>
-    <div class="form-group"><label>Correct Scores (5pt)</label><input type="number" id="edit-cs" min="0" value="0"></div>
-    <div class="form-group"><label>Bonus Points</label><input type="number" id="edit-bonus" min="0" value="0"></div>
+  <div class="section-title" style="font-size:1.05rem;margin-bottom:6px;">Update Weekly Points</div>
+  <p style="font-size:0.86rem;color:var(--text-dim);margin-bottom:16px;">Enter <strong style="color:var(--gold);">this week's results only</strong> for each player — they'll be added on top of their existing totals automatically. Leave a field as 0 if nothing to add.</p>
+
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-family:'Barlow Condensed',sans-serif;min-width:600px;">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:8px 10px;font-size:0.75rem;letter-spacing:0.12em;color:var(--gold);border-bottom:2px solid var(--green-bright);background:rgba(0,0,0,0.3);">Player</th>
+          <th style="padding:8px 6px;font-size:0.75rem;letter-spacing:0.1em;color:var(--gold);border-bottom:2px solid var(--green-bright);background:rgba(0,0,0,0.3);text-align:center;" title="Add 1 to played count">+Played</th>
+          <th style="padding:8px 6px;font-size:0.75rem;letter-spacing:0.1em;color:#7dd87d;border-bottom:2px solid var(--green-bright);background:rgba(0,0,0,0.3);text-align:center;" title="Home wins this week">+Home</th>
+          <th style="padding:8px 6px;font-size:0.75rem;letter-spacing:0.1em;color:#e0c060;border-bottom:2px solid var(--green-bright);background:rgba(0,0,0,0.3);text-align:center;" title="Draws this week">+Draw</th>
+          <th style="padding:8px 6px;font-size:0.75rem;letter-spacing:0.1em;color:#80c4ff;border-bottom:2px solid var(--green-bright);background:rgba(0,0,0,0.3);text-align:center;" title="Away wins this week">+Away</th>
+          <th style="padding:8px 6px;font-size:0.75rem;letter-spacing:0.1em;color:#ff9f60;border-bottom:2px solid var(--green-bright);background:rgba(0,0,0,0.3);text-align:center;" title="Correct scores this week">+CS</th>
+          <th style="padding:8px 6px;font-size:0.75rem;letter-spacing:0.1em;color:#cc88ff;border-bottom:2px solid var(--green-bright);background:rgba(0,0,0,0.3);text-align:center;" title="Bonus points this week">+Bonus</th>
+          <th style="padding:8px 6px;font-size:0.75rem;letter-spacing:0.1em;color:var(--gold);border-bottom:2px solid var(--green-bright);background:rgba(0,0,0,0.3);text-align:center;">Total Pts</th>
+        </tr>
+      </thead>
+      <tbody id="weekly-update-rows"></tbody>
+    </table>
   </div>
-  <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-    <button class="btn btn-gold" id="load-btn">Load Player</button>
-    <button class="btn btn-primary" id="save-player-btn">Apply Changes</button>
+
+  <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+    <button class="btn btn-primary" id="apply-week-btn">✅ Add This Week's Results</button>
+    <button class="btn btn-gold" id="reset-week-btn">↩ Clear Week Inputs</button>
+    <span style="font-size:0.82rem;color:var(--text-dim);">Points are added to existing totals — not replaced.</span>
   </div>
 </div>
 
@@ -635,11 +639,11 @@ function init(){
   const url=`https://raw.githubusercontent.com/${gh.user||'DarrenFTS'}/${gh.repo||'ScottishFitbaw'}/main/data.json?t=${Date.now()}`;
   fetch(url).then(r=>r.ok?r.json():null).then(data=>{
     state=data||JSON.parse(JSON.stringify(FALLBACK));
-    setupTabs(document,state);renderManage();
+    setupTabs(document,state);renderManage();renderWeeklyUpdateTable();
     setStatus(data?'Loaded from GitHub ✓':'Using fresh season data','ok');
   }).catch(()=>{
     state=JSON.parse(JSON.stringify(FALLBACK));
-    setupTabs(document,state);renderManage();
+    setupTabs(document,state);renderManage();renderWeeklyUpdateTable();
     setStatus('Could not reach GitHub — using fresh season data','err');
   });
 }
@@ -663,29 +667,9 @@ function renderManage(){
     </div>`).join('');
 }
 
-document.getElementById('load-btn').addEventListener('click',()=>{
-  const name=document.getElementById('edit-player').value;
-  const p=state.league.find(x=>x.player===name); if(!p)return;
-  document.getElementById('edit-played').value=p.played||0;
-  document.getElementById('edit-home').value=p.home||0;
-  document.getElementById('edit-draw').value=p.draw||0;
-  document.getElementById('edit-away').value=p.away||0;
-  document.getElementById('edit-cs').value=p.cs||0;
-  document.getElementById('edit-bonus').value=p.bonus||0;
-});
 
-document.getElementById('save-player-btn').addEventListener('click',()=>{
-  const name=document.getElementById('edit-player').value;
-  const idx=state.league.findIndex(x=>x.player===name); if(idx<0)return;
-  state.league[idx].played=parseInt(document.getElementById('edit-played').value)||0;
-  state.league[idx].home=parseInt(document.getElementById('edit-home').value)||0;
-  state.league[idx].draw=parseInt(document.getElementById('edit-draw').value)||0;
-  state.league[idx].away=parseInt(document.getElementById('edit-away').value)||0;
-  state.league[idx].cs=parseInt(document.getElementById('edit-cs').value)||0;
-  state.league[idx].bonus=parseInt(document.getElementById('edit-bonus').value)||0;
-  setupTabs(document,state);
-  setStatus('Changes applied — remember to Push Live ⬆','');
-});
+
+
 
 document.getElementById('save-week-btn').addEventListener('click',()=>{
   const wNum=parseInt(document.getElementById('new-week-num').value);
@@ -742,6 +726,81 @@ document.getElementById('save-week-btn').addEventListener('click',()=>{
   else state.weeks.push({week:wNum,selections});
   setupTabs(document,state);
   setStatus('Week '+wNum+' added — remember to Push Live ⬆','');
+});
+
+
+function calcPtsDisplay(p){return (p.home||0)*1+(p.draw||0)*3+(p.away||0)*2+(p.cs||0)*5+(p.bonus||0);}
+
+function renderWeeklyUpdateTable(){
+  const tbody = document.getElementById('weekly-update-rows');
+  if(!tbody) return;
+  tbody.innerHTML = PLAYERS.map(p => {
+    const player = state.league.find(x=>x.player===p)||{player:p,played:0,home:0,draw:0,away:0,cs:0,bonus:0};
+    const total = calcPtsDisplay(player);
+    return `<tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:8px 10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;">${p}</td>
+      <td style="padding:6px 4px;text-align:center;"><input type="number" class="finput week-inp" id="wu-played-${p}" value="0" min="0" style="width:52px;text-align:center;padding:5px 4px;"></td>
+      <td style="padding:6px 4px;text-align:center;"><input type="number" class="finput week-inp" id="wu-home-${p}"   value="0" min="0" style="width:52px;text-align:center;padding:5px 4px;"></td>
+      <td style="padding:6px 4px;text-align:center;"><input type="number" class="finput week-inp" id="wu-draw-${p}"   value="0" min="0" style="width:52px;text-align:center;padding:5px 4px;"></td>
+      <td style="padding:6px 4px;text-align:center;"><input type="number" class="finput week-inp" id="wu-away-${p}"   value="0" min="0" style="width:52px;text-align:center;padding:5px 4px;"></td>
+      <td style="padding:6px 4px;text-align:center;"><input type="number" class="finput week-inp" id="wu-cs-${p}"     value="0" min="0" style="width:52px;text-align:center;padding:5px 4px;"></td>
+      <td style="padding:6px 4px;text-align:center;"><input type="number" class="finput week-inp" id="wu-bonus-${p}"  value="0" min="0" style="width:52px;text-align:center;padding:5px 4px;"></td>
+      <td style="padding:8px 6px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);" id="wu-total-${p}">${total}</td>
+    </tr>`;
+  }).join('');
+
+  // Live-update totals as user types
+  document.querySelectorAll('.week-inp').forEach(inp => {
+    inp.addEventListener('input', updateLiveTotals);
+  });
+}
+
+function updateLiveTotals(){
+  PLAYERS.forEach(p => {
+    const player = state.league.find(x=>x.player===p)||{played:0,home:0,draw:0,away:0,cs:0,bonus:0};
+    const addHome  = parseInt(document.getElementById('wu-home-'+p)?.value)||0;
+    const addDraw  = parseInt(document.getElementById('wu-draw-'+p)?.value)||0;
+    const addAway  = parseInt(document.getElementById('wu-away-'+p)?.value)||0;
+    const addCS    = parseInt(document.getElementById('wu-cs-'+p)?.value)||0;
+    const addBonus = parseInt(document.getElementById('wu-bonus-'+p)?.value)||0;
+    const newTotal = ((player.home||0)+addHome)*1 + ((player.draw||0)+addDraw)*3 +
+                     ((player.away||0)+addAway)*2 + ((player.cs||0)+addCS)*5 +
+                     ((player.bonus||0)+addBonus);
+    const el = document.getElementById('wu-total-'+p);
+    if(el) el.textContent = newTotal;
+  });
+}
+
+document.getElementById('apply-week-btn').addEventListener('click',()=>{
+  let changed = false;
+  PLAYERS.forEach(p => {
+    const idx = state.league.findIndex(x=>x.player===p);
+    if(idx < 0) return;
+    const addPlayed = parseInt(document.getElementById('wu-played-'+p)?.value)||0;
+    const addHome   = parseInt(document.getElementById('wu-home-'+p)?.value)||0;
+    const addDraw   = parseInt(document.getElementById('wu-draw-'+p)?.value)||0;
+    const addAway   = parseInt(document.getElementById('wu-away-'+p)?.value)||0;
+    const addCS     = parseInt(document.getElementById('wu-cs-'+p)?.value)||0;
+    const addBonus  = parseInt(document.getElementById('wu-bonus-'+p)?.value)||0;
+    if(addPlayed||addHome||addDraw||addAway||addCS||addBonus){
+      state.league[idx].played = (state.league[idx].played||0) + addPlayed;
+      state.league[idx].home   = (state.league[idx].home||0)   + addHome;
+      state.league[idx].draw   = (state.league[idx].draw||0)   + addDraw;
+      state.league[idx].away   = (state.league[idx].away||0)   + addAway;
+      state.league[idx].cs     = (state.league[idx].cs||0)     + addCS;
+      state.league[idx].bonus  = (state.league[idx].bonus||0)  + addBonus;
+      changed = true;
+    }
+  });
+  if(!changed){ alert('Nothing to add — all values are 0.'); return; }
+  renderWeeklyUpdateTable(); // refresh table with new totals & reset inputs to 0
+  setupTabs(document, state);
+  setStatus('Week results added — remember to Push Live ⬆','');
+});
+
+document.getElementById('reset-week-btn').addEventListener('click',()=>{
+  document.querySelectorAll('.week-inp').forEach(inp => { inp.value = 0; });
+  updateLiveTotals();
 });
 
 document.getElementById('push-btn').addEventListener('click',async()=>{
