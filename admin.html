@@ -675,10 +675,13 @@ document.getElementById('save-week-btn').addEventListener('click',()=>{
   const wNum=parseInt(document.getElementById('new-week-num').value);
   if(!wNum){alert('Enter a week number');return;}
 
-  const selections=PLAYERS.map(p=>{
+  if(!state.teams) state.teams = [];
+
+  // ── Only process players who have something entered this time ──
+  const newEntries = PLAYERS.map(p=>{
     const team = document.getElementById('team-'+p).value.trim();
     const had  = document.getElementById('had-'+p).value;
-    // Build selection string: "Celtic H", "Hearts A", "Draw" etc
+    if(!team && !had) return null; // nothing entered for this player — skip
     let selStr = '—';
     if(team && had) selStr = had==='D' ? 'Draw' : team+' '+had;
     else if(team)   selStr = team;
@@ -691,41 +694,69 @@ document.getElementById('save-week-btn').addEventListener('click',()=>{
       bonus: parseInt(document.getElementById('bonus-'+p).value)||0,
       pts:   parseInt(document.getElementById('pts-'+p).value)||0,
     };
-  });
+  }).filter(s=>s!==null);
 
-  // ── Update Teams Picked data ──
-  if(!state.teams) state.teams = [];
-  selections.forEach(s=>{
-    if(!s.team && !s.had) return; // no pick entered, skip
-    // Determine which team key to increment
-    const teamKey = s.had==='D' ? 'DRAW' : s.team;
-    if(!teamKey) return;
-    // Find matching team in state.teams (case-insensitive partial match for DRAW)
+  if(newEntries.length===0){alert('No selections entered — fill in at least one player.');return;}
+
+  // ── Merge with existing week if it exists ──
+  const ex = state.weeks.findIndex(w=>w.week===wNum);
+  if(ex>=0){
+    // Week exists — update only the players who have new entries, leave others untouched
+    newEntries.forEach(s=>{
+      const playerIdx = state.weeks[ex].selections.findIndex(x=>x.player===s.player);
+
+      // If this player already had a pick, reverse their old teams entry first
+      if(playerIdx>=0){
+        const old = state.weeks[ex].selections[playerIdx];
+        if(old.team || old.had){
+          const oldTeamKey = old.had==='D' ? 'DRAW' : old.team;
+          const oldEntry = old.had==='D'
+            ? state.teams.find(t=>t.team==='DRAW')
+            : state.teams.find(t=>t.team.toLowerCase()===(old.team||'').toLowerCase());
+          if(oldEntry){
+            oldEntry[old.player] = Math.max(0,(oldEntry[old.player]||0)-1);
+            oldEntry.total       = Math.max(0,(oldEntry.total||0)-1);
+          }
+        }
+        // Replace with new entry
+        state.weeks[ex].selections[playerIdx] = s;
+      } else {
+        // Player had no entry yet — add them
+        state.weeks[ex].selections.push(s);
+      }
+    });
+  } else {
+    // New week — build full selections array: new entries + blank placeholders for others
+    const allSelections = PLAYERS.map(p=>{
+      const entered = newEntries.find(s=>s.player===p);
+      return entered || {player:p,selection:'',team:'',had:'',score:'',bonus:0,pts:0};
+    });
+    state.weeks.push({week:wNum, selections:allSelections});
+  }
+
+  // ── Update Teams Picked for newly entered selections only ──
+  newEntries.forEach(s=>{
+    if(!s.team && s.had!=='D') return;
     let teamEntry = null;
     if(s.had==='D'){
       teamEntry = state.teams.find(t=>t.team==='DRAW');
     } else {
-      // Try exact match first, then case-insensitive
       teamEntry = state.teams.find(t=>t.team.toLowerCase()===s.team.toLowerCase());
       if(!teamEntry){
-        // Add new team entry if not found
-        const newTeam = {team:s.team, total:0};
-        PLAYERS.forEach(p=>{ newTeam[p]=0; });
+        const newTeam={team:s.team,total:0};
+        PLAYERS.forEach(p=>{newTeam[p]=0;});
         state.teams.push(newTeam);
-        teamEntry = state.teams[state.teams.length-1];
+        teamEntry=state.teams[state.teams.length-1];
       }
     }
     if(teamEntry){
-      teamEntry[s.player] = (teamEntry[s.player]||0) + 1;
-      teamEntry.total = (teamEntry.total||0) + 1;
+      teamEntry[s.player]=(teamEntry[s.player]||0)+1;
+      teamEntry.total=(teamEntry.total||0)+1;
     }
   });
 
-  const ex=state.weeks.findIndex(w=>w.week===wNum);
-  if(ex>=0){if(!confirm('Week '+wNum+' exists. Overwrite?'))return;state.weeks[ex]={week:wNum,selections};}
-  else state.weeks.push({week:wNum,selections});
   setupTabs(document,state);
-  setStatus('Week '+wNum+' added — remember to Push Live ⬆','');
+  setStatus('Week '+wNum+' updated ('+newEntries.length+' player'+(newEntries.length>1?'s':'')+') — remember to Push Live ⬆','');
 });
 
 
