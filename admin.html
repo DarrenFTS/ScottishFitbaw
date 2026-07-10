@@ -102,7 +102,7 @@ body::before{content:'';position:fixed;inset:0;
 .btn{font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:9px 22px;border:none;border-radius:6px;cursor:pointer;transition:all 0.18s;}
 .btn-primary{background:var(--green-bright);color:#fff;}.btn-primary:hover{background:var(--green-light);}
 .btn-gold{background:var(--gold);color:#000;}.btn-gold:hover{background:#f8d060;}
-.wrow{display:grid;grid-template-columns:90px 1fr 76px 60px 60px;gap:8px;margin-bottom:7px;align-items:center;}
+.wrow{display:grid;grid-template-columns:90px 1fr 60px 76px 60px 60px;gap:8px;margin-bottom:7px;align-items:center;}
 .wrow-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.97rem;}
 .col-hdr{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);text-transform:uppercase;}
 #login-overlay{position:fixed;inset:0;background:#061a06;z-index:9999;display:flex;align-items:center;justify-content:center;}
@@ -192,8 +192,8 @@ body::before{content:'';position:fixed;inset:0;
     <input type="number" id="new-week-num" class="finput" style="width:80px;" min="1" placeholder="1">
   </div>
   <div style="display:grid;grid-template-columns:90px 1fr 76px 60px 60px;gap:8px;margin-bottom:8px;">
-    <span class="col-hdr">Player</span><span class="col-hdr">Selection</span>
-    <span class="col-hdr">Score</span><span class="col-hdr">Bonus</span><span class="col-hdr">Pts</span>
+    <span class="col-hdr">Player</span><span class="col-hdr">Team</span>
+    <span class="col-hdr">H/A/D</span><span class="col-hdr">Score</span><span class="col-hdr">Bonus</span><span class="col-hdr">Pts</span>
   </div>
   <div id="week-entry-rows"></div>
   <button class="btn btn-primary" id="save-week-btn" style="margin-top:12px;">Add to Selections</button>
@@ -675,7 +675,13 @@ function renderManage(){
   document.getElementById('week-entry-rows').innerHTML=PLAYERS.map(p=>`
     <div class="wrow">
       <span class="wrow-label">${p}</span>
-      <input type="text" class="finput" id="sel-${p}" placeholder="e.g. Celtic home">
+      <input type="text" class="finput" id="team-${p}" placeholder="e.g. Celtic">
+      <select class="finput" id="had-${p}" style="padding:6px 4px;text-align:center;">
+        <option value="">—</option>
+        <option value="H">H</option>
+        <option value="A">A</option>
+        <option value="D">D</option>
+      </select>
       <input type="text" class="finput" id="score-${p}" placeholder="2-1">
       <input type="number" class="finput" id="bonus-${p}" value="0" min="0">
       <input type="number" class="finput" id="pts-${p}" value="0" min="0">
@@ -709,12 +715,52 @@ document.getElementById('save-player-btn').addEventListener('click',()=>{
 document.getElementById('save-week-btn').addEventListener('click',()=>{
   const wNum=parseInt(document.getElementById('new-week-num').value);
   if(!wNum){alert('Enter a week number');return;}
-  const selections=PLAYERS.map(p=>({
-    player:p,selection:document.getElementById('sel-'+p).value||'—',
-    score:document.getElementById('score-'+p).value||'—',
-    bonus:parseInt(document.getElementById('bonus-'+p).value)||0,
-    pts:parseInt(document.getElementById('pts-'+p).value)||0,
-  }));
+
+  const selections=PLAYERS.map(p=>{
+    const team = document.getElementById('team-'+p).value.trim();
+    const had  = document.getElementById('had-'+p).value;
+    // Build selection string: "Celtic H", "Hearts A", "Draw" etc
+    let selStr = '—';
+    if(team && had) selStr = had==='D' ? 'Draw' : team+' '+had;
+    else if(team)   selStr = team;
+    return {
+      player:p,
+      selection: selStr,
+      team: team||'',
+      had: had||'',
+      score: document.getElementById('score-'+p).value||'—',
+      bonus: parseInt(document.getElementById('bonus-'+p).value)||0,
+      pts:   parseInt(document.getElementById('pts-'+p).value)||0,
+    };
+  });
+
+  // ── Update Teams Picked data ──
+  selections.forEach(s=>{
+    if(!s.team && !s.had) return; // no pick entered, skip
+    // Determine which team key to increment
+    const teamKey = s.had==='D' ? 'DRAW' : s.team;
+    if(!teamKey) return;
+    // Find matching team in state.teams (case-insensitive partial match for DRAW)
+    let teamEntry = null;
+    if(s.had==='D'){
+      teamEntry = state.teams.find(t=>t.team==='DRAW');
+    } else {
+      // Try exact match first, then case-insensitive
+      teamEntry = state.teams.find(t=>t.team.toLowerCase()===s.team.toLowerCase());
+      if(!teamEntry){
+        // Add new team entry if not found
+        const newTeam = {team:s.team, total:0};
+        PLAYERS.forEach(p=>{ newTeam[p]=0; });
+        state.teams.push(newTeam);
+        teamEntry = state.teams[state.teams.length-1];
+      }
+    }
+    if(teamEntry){
+      teamEntry[s.player] = (teamEntry[s.player]||0) + 1;
+      teamEntry.total = (teamEntry.total||0) + 1;
+    }
+  });
+
   const ex=state.weeks.findIndex(w=>w.week===wNum);
   if(ex>=0){if(!confirm('Week '+wNum+' exists. Overwrite?'))return;state.weeks[ex]={week:wNum,selections};}
   else state.weeks.push({week:wNum,selections});
