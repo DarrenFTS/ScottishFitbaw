@@ -169,10 +169,10 @@
         },
         {
           "player": "Steve",
-          "selection": "St.Mirren A",
-          "team": "St.Mirren",
+          "selection": "Dunfermline A",
+          "team": "Dunfermline",
           "had": "A",
-          "score": "3-0",
+          "score": "3-1",
           "bonus": 0,
           "pts": 0
         },
@@ -499,7 +499,7 @@
     },
     {
       "team": "St.Mirren",
-      "total": 2,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -508,12 +508,12 @@
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 1,
+      "Steve": 0,
       "Stevie": 0
     },
     {
       "team": "Dunfermline",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -522,7 +522,7 @@
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 0,
+      "Steve": 1,
       "Stevie": 0
     },
     {
