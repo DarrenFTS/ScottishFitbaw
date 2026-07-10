@@ -124,10 +124,10 @@
         },
         {
           "player": "Dean",
-          "selection": "—",
-          "team": "",
-          "had": "",
-          "score": "—",
+          "selection": "St.Mirren A",
+          "team": "St.Mirren",
+          "had": "A",
+          "score": "3-0",
           "bonus": 0,
           "pts": 0
         },
@@ -178,10 +178,10 @@
         },
         {
           "player": "Stevie",
-          "selection": "—",
-          "team": "",
-          "had": "",
-          "score": "—",
+          "selection": "Kelty A",
+          "team": "Kelty",
+          "had": "A",
+          "score": "3-1",
           "bonus": 0,
           "pts": 0
         }
@@ -499,11 +499,11 @@
     },
     {
       "team": "St.Mirren",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
-      "Dean": 0,
+      "Dean": 1,
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
@@ -569,7 +569,7 @@
     },
     {
       "team": "Kelty",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -579,7 +579,7 @@
       "Rhys": 0,
       "Scott": 0,
       "Steve": 0,
-      "Stevie": 0
+      "Stevie": 1
     },
     {
       "team": "Annan",
