@@ -2,17 +2,17 @@
   "league": [
     {
       "player": "Callum",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
-      "away": 0,
+      "away": 1,
       "cs": 0,
       "bonus": 0
     },
     {
       "player": "Darren",
-      "played": 0,
-      "home": 0,
+      "played": 1,
+      "home": 1,
       "draw": 0,
       "away": 0,
       "cs": 0,
@@ -20,43 +20,43 @@
     },
     {
       "player": "Dean",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
-      "away": 0,
+      "away": 1,
       "cs": 0,
       "bonus": 0
     },
     {
       "player": "Jamie",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
-      "away": 0,
+      "away": 1,
       "cs": 0,
       "bonus": 0
     },
     {
       "player": "Roger",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
-      "away": 0,
+      "away": 1,
       "cs": 0,
       "bonus": 0
     },
     {
       "player": "Scott",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
-      "away": 0,
+      "away": 1,
       "cs": 0,
       "bonus": 0
     },
     {
       "player": "Steve",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
       "away": 0,
@@ -65,7 +65,7 @@
     },
     {
       "player": "Davie",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
       "away": 0,
@@ -74,16 +74,16 @@
     },
     {
       "player": "Rhys",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
-      "away": 0,
-      "cs": 0,
+      "away": 1,
+      "cs": 1,
       "bonus": 0
     },
     {
       "player": "Stevie",
-      "played": 0,
+      "played": 1,
       "home": 0,
       "draw": 0,
       "away": 0,
