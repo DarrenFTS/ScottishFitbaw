@@ -161,7 +161,13 @@ body::before{content:'';position:fixed;inset:0;
 
 <div class="add-form">
   <div class="section-title" style="font-size:1.05rem;margin-bottom:6px;">Update Weekly Points</div>
-  <p style="font-size:0.86rem;color:var(--text-dim);margin-bottom:16px;">Enter <strong style="color:var(--gold);">this week's results only</strong> for each player — they'll be added on top of their existing totals automatically. Leave a field as 0 if nothing to add.</p>
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap;">
+    <p style="font-size:0.86rem;color:var(--text-dim);">Enter <strong style="color:var(--gold);">this week's results only</strong> — added on top of existing totals. Points also update the Weekly Selections tab.</p>
+    <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+      <label style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.9rem;color:var(--text-dim);">Week Number:</label>
+      <input type="number" id="wu-week-num" class="finput" style="width:70px;" min="1" placeholder="1">
+    </div>
+  </div>
 
   <div style="overflow-x:auto;">
     <table style="width:100%;border-collapse:collapse;font-family:'Barlow Condensed',sans-serif;min-width:600px;">
@@ -836,30 +842,49 @@ function updateLiveTotals(){
 }
 
 document.getElementById('apply-week-btn').addEventListener('click',()=>{
+  const wNum = parseInt(document.getElementById('wu-week-num')?.value)||0;
   let changed = false;
+
   PLAYERS.forEach(p => {
-    const idx = state.league.findIndex(x=>x.player===p);
-    if(idx < 0) return;
+    const leagueIdx = state.league.findIndex(x=>x.player===p);
+    if(leagueIdx < 0) return;
+
     const addPlayed = parseInt(document.getElementById('wu-played-'+p)?.value)||0;
     const addHome   = parseInt(document.getElementById('wu-home-'+p)?.value)||0;
     const addDraw   = parseInt(document.getElementById('wu-draw-'+p)?.value)||0;
     const addAway   = parseInt(document.getElementById('wu-away-'+p)?.value)||0;
     const addCS     = parseInt(document.getElementById('wu-cs-'+p)?.value)||0;
     const addBonus  = parseInt(document.getElementById('wu-bonus-'+p)?.value)||0;
+
     if(addPlayed||addHome||addDraw||addAway||addCS||addBonus){
-      state.league[idx].played = (state.league[idx].played||0) + addPlayed;
-      state.league[idx].home   = (state.league[idx].home||0)   + addHome;
-      state.league[idx].draw   = (state.league[idx].draw||0)   + addDraw;
-      state.league[idx].away   = (state.league[idx].away||0)   + addAway;
-      state.league[idx].cs     = (state.league[idx].cs||0)     + addCS;
-      state.league[idx].bonus  = (state.league[idx].bonus||0)  + addBonus;
+      // ── Update league table totals ──
+      state.league[leagueIdx].played = (state.league[leagueIdx].played||0) + addPlayed;
+      state.league[leagueIdx].home   = (state.league[leagueIdx].home||0)   + addHome;
+      state.league[leagueIdx].draw   = (state.league[leagueIdx].draw||0)   + addDraw;
+      state.league[leagueIdx].away   = (state.league[leagueIdx].away||0)   + addAway;
+      state.league[leagueIdx].cs     = (state.league[leagueIdx].cs||0)     + addCS;
+      state.league[leagueIdx].bonus  = (state.league[leagueIdx].bonus||0)  + addBonus;
+
+      // ── Also stamp points onto the matching week's selection record ──
+      if(wNum){
+        const weekIdx = state.weeks.findIndex(w=>w.week===wNum);
+        if(weekIdx>=0){
+          const selIdx = state.weeks[weekIdx].selections.findIndex(s=>s.player===p);
+          const earnedPts = addHome*1 + addDraw*3 + addAway*2 + addCS*5 + addBonus;
+          if(selIdx>=0){
+            state.weeks[weekIdx].selections[selIdx].pts   = (state.weeks[weekIdx].selections[selIdx].pts||0) + earnedPts;
+            state.weeks[weekIdx].selections[selIdx].bonus = (state.weeks[weekIdx].selections[selIdx].bonus||0) + addBonus;
+          }
+        }
+      }
       changed = true;
     }
   });
+
   if(!changed){ alert('Nothing to add — all values are 0.'); return; }
-  renderWeeklyUpdateTable(); // refresh table with new totals & reset inputs to 0
+  renderWeeklyUpdateTable();
   setupTabs(document, state);
-  setStatus('Week results added — remember to Push Live ⬆','');
+  setStatus('Week '+(wNum||'?')+' results added — remember to Push Live ⬆','');
 });
 
 document.getElementById('reset-week-btn').addEventListener('click',()=>{
