@@ -102,7 +102,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 2,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Darren",
@@ -111,7 +111,7 @@
           "had": "H",
           "score": "3-0",
           "bonus": 1,
-          "pts": 0
+          "pts": 1
         },
         {
           "player": "Davie",
@@ -129,7 +129,7 @@
           "had": "A",
           "score": "3-0",
           "bonus": 2,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Jamie",
@@ -138,7 +138,7 @@
           "had": "A",
           "score": "4-0",
           "bonus": 2,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Roger",
@@ -147,7 +147,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 2,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Rhys",
@@ -156,7 +156,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 7,
-          "pts": 0
+          "pts": 7
         },
         {
           "player": "Scott",
@@ -165,7 +165,7 @@
           "had": "A",
           "score": "3-0",
           "bonus": 2,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Steve",
