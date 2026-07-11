@@ -718,20 +718,24 @@ document.getElementById('save-week-btn').addEventListener('click',async()=>{
 
   // ── Only process players who have something entered this time ──
   const newEntries = PLAYERS.map(p=>{
-    const team = document.getElementById('team-'+p).value.trim();
-    const had  = document.getElementById('had-'+p).value;
-    if(!team && !had) return null; // nothing entered for this player — skip
+    const team  = document.getElementById('team-'+p).value.trim();
+    const had   = document.getElementById('had-'+p).value;
+    const score = document.getElementById('score-'+p).value.trim();
+    const bonus = parseInt(document.getElementById('bonus-'+p).value)||0;
+    const pts   = parseInt(document.getElementById('pts-'+p).value)||0;
+    // Skip only if absolutely nothing entered at all
+    if(!team && !had && !score && !bonus && !pts) return null;
     let selStr = '—';
     if(team && had) selStr = had==='D' ? 'Draw' : team+' '+had;
     else if(team)   selStr = team;
     return {
       player:p,
-      selection: selStr,
+      selection: selStr, // will be '—' if only score/pts entered — merge keeps existing selection
       team: team||'',
       had: had||'',
-      score: document.getElementById('score-'+p).value||'—',
-      bonus: parseInt(document.getElementById('bonus-'+p).value)||0,
-      pts:   parseInt(document.getElementById('pts-'+p).value)||0,
+      score: score||'—',
+      bonus: bonus,
+      pts:   pts,
     };
   }).filter(s=>s!==null);
 
@@ -747,18 +751,25 @@ document.getElementById('save-week-btn').addEventListener('click',async()=>{
       // If this player already had a pick, reverse their old teams entry first
       if(playerIdx>=0){
         const old = state.weeks[ex].selections[playerIdx];
-        if(old.team || old.had){
-          const oldTeamKey = old.had==='D' ? 'DRAW' : old.team;
-          const oldEntry = old.had==='D'
-            ? state.teams.find(t=>t.team==='DRAW')
-            : state.teams.find(t=>t.team.toLowerCase()===(old.team||'').toLowerCase());
-          if(oldEntry){
-            oldEntry[old.player] = Math.max(0,(oldEntry[old.player]||0)-1);
-            oldEntry.total       = Math.max(0,(oldEntry.total||0)-1);
+        if(s.team || s.had){
+          // Has a new team/result pick — reverse old teams count first
+          if(old.team || old.had){
+            const oldEntry = old.had==='D'
+              ? state.teams.find(t=>t.team==='DRAW')
+              : state.teams.find(t=>t.team.toLowerCase()===(old.team||'').toLowerCase());
+            if(oldEntry){
+              oldEntry[old.player] = Math.max(0,(oldEntry[old.player]||0)-1);
+              oldEntry.total       = Math.max(0,(oldEntry.total||0)-1);
+            }
           }
+          // Full replace with new entry
+          state.weeks[ex].selections[playerIdx] = s;
+        } else {
+          // Score/pts only — keep existing selection/team/had, just update score, pts, bonus
+          if(s.score && s.score !== '—') state.weeks[ex].selections[playerIdx].score = s.score;
+          if(s.pts)   state.weeks[ex].selections[playerIdx].pts   = s.pts;
+          if(s.bonus) state.weeks[ex].selections[playerIdx].bonus = s.bonus;
         }
-        // Replace with new entry
-        state.weeks[ex].selections[playerIdx] = s;
       } else {
         // Player had no entry yet — add them
         state.weeks[ex].selections.push(s);
