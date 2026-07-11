@@ -102,7 +102,7 @@ body::before{content:'';position:fixed;inset:0;
 .btn{font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:9px 22px;border:none;border-radius:6px;cursor:pointer;transition:all 0.18s;}
 .btn-primary{background:var(--green-bright);color:#fff;}.btn-primary:hover{background:var(--green-light);}
 .btn-gold{background:var(--gold);color:#000;}.btn-gold:hover{background:#f8d060;}
-.wrow{display:grid;grid-template-columns:90px 1fr 55px 70px 55px 55px;gap:8px;margin-bottom:7px;align-items:center;}
+.wrow{display:grid;grid-template-columns:90px 1fr 55px 55px 70px;gap:8px;margin-bottom:7px;align-items:center;}
 .wrow-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.97rem;}
 .col-hdr{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-dim);text-transform:uppercase;}
 #login-overlay{position:fixed;inset:0;background:#061a06;z-index:9999;display:flex;align-items:center;justify-content:center;}
@@ -201,9 +201,9 @@ body::before{content:'';position:fixed;inset:0;
     <label style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.9rem;color:var(--text-dim);">Week Number:</label>
     <input type="number" id="new-week-num" class="finput" style="width:80px;" min="1" placeholder="1">
   </div>
-  <div style="display:grid;grid-template-columns:90px 1fr 55px 70px 55px 55px;gap:8px;margin-bottom:8px;">
+  <div style="display:grid;grid-template-columns:90px 1fr 55px 55px 70px;gap:8px;margin-bottom:8px;">
     <span class="col-hdr">Player</span><span class="col-hdr">Team</span>
-    <span class="col-hdr">H/A/D</span><span class="col-hdr">Score</span><span class="col-hdr">Bonus</span><span class="col-hdr">Pts</span>
+    <span class="col-hdr">H/A/D</span><span class="col-hdr">Bonus</span><span class="col-hdr">Score (Pts)</span>
   </div>
   <div id="week-entry-rows"></div>
   <button class="btn btn-primary" id="save-week-btn" style="margin-top:12px;">Add to Selections</button>
@@ -667,9 +667,8 @@ function renderManage(){
         <option value="A">A</option>
         <option value="D">D</option>
       </select>
-      <input type="text" class="finput" id="score-${p}" placeholder="2-1">
-      <input type="number" class="finput" id="bonus-${p}" value="0" min="0">
-      <input type="number" class="finput" id="pts-${p}" value="0" min="0">
+      <input type="number" class="finput" id="bonus-${p}" value="0" min="0" placeholder="0">
+      <input type="number" class="finput" id="pts-${p}" value="0" min="0" placeholder="Pts">
     </div>`).join('');
 }
 
@@ -720,20 +719,19 @@ document.getElementById('save-week-btn').addEventListener('click',async()=>{
   const newEntries = PLAYERS.map(p=>{
     const team  = document.getElementById('team-'+p).value.trim();
     const had   = document.getElementById('had-'+p).value;
-    const score = document.getElementById('score-'+p).value.trim();
     const bonus = parseInt(document.getElementById('bonus-'+p).value)||0;
     const pts   = parseInt(document.getElementById('pts-'+p).value)||0;
     // Skip only if absolutely nothing entered at all
-    if(!team && !had && !score && !bonus && !pts) return null;
+    if(!team && !had && !bonus && !pts) return null;
     let selStr = '—';
     if(team && had) selStr = had==='D' ? 'Draw' : team+' '+had;
     else if(team)   selStr = team;
     return {
       player:p,
-      selection: selStr, // will be '—' if only score/pts entered — merge keeps existing selection
+      selection: selStr,
       team: team||'',
       had: had||'',
-      score: score||'—',
+      score: pts > 0 ? String(pts) : '—',  // pts maps to score/points in selections tab
       bonus: bonus,
       pts:   pts,
     };
@@ -766,7 +764,6 @@ document.getElementById('save-week-btn').addEventListener('click',async()=>{
           state.weeks[ex].selections[playerIdx] = s;
         } else {
           // Score/pts only — keep existing selection/team/had, just update score, pts, bonus
-          if(s.score && s.score !== '—') state.weeks[ex].selections[playerIdx].score = s.score;
           if(s.pts)   state.weeks[ex].selections[playerIdx].pts   = s.pts;
           if(s.bonus) state.weeks[ex].selections[playerIdx].bonus = s.bonus;
         }
