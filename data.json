@@ -186,15 +186,110 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 2,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "Draw",
+          "team": "Livingston",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "St. Johnstone H",
+          "team": "St. Johnstone",
+          "had": "H",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "Draw",
+          "team": "Stirling",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "St.Mirren A",
+          "team": "St.Mirren",
+          "had": "A",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "Partick Th A",
+          "team": "Partick Th",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Inverness A",
+          "team": "Inverness",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "Stenhousemuir A",
+          "team": "Stenhousemuir",
+          "had": "A",
+          "score": "4-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Kilmarnock A",
+          "team": "Kilmarnock",
+          "had": "A",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "QOS A",
+          "team": "QOS",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Aberdeen H",
+          "team": "Aberdeen",
+          "had": "H",
+          "score": "5-1",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
     {
       "team": "DRAW",
-      "total": 1,
-      "Callum": 0,
+      "total": 3,
+      "Callum": 1,
       "Darren": 0,
-      "Davie": 1,
+      "Davie": 2,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
@@ -205,9 +300,9 @@
     },
     {
       "team": "St. Johnstone",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
-      "Darren": 0,
+      "Darren": 1,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
@@ -247,13 +342,13 @@
     },
     {
       "team": "Inverness",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
-      "Roger": 0,
+      "Roger": 1,
       "Rhys": 0,
       "Scott": 0,
       "Steve": 0,
@@ -289,12 +384,12 @@
     },
     {
       "team": "Partick Th",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
@@ -373,7 +468,7 @@
     },
     {
       "team": "QOS",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -382,19 +477,19 @@
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 0,
+      "Steve": 1,
       "Stevie": 0
     },
     {
       "team": "Stenhousemuir",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
-      "Rhys": 0,
+      "Rhys": 1,
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
@@ -457,7 +552,7 @@
     },
     {
       "team": "Aberdeen",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -467,11 +562,11 @@
       "Rhys": 0,
       "Scott": 0,
       "Steve": 0,
-      "Stevie": 0
+      "Stevie": 1
     },
     {
       "team": "Kilmarnock",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -479,7 +574,7 @@
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
-      "Scott": 0,
+      "Scott": 1,
       "Steve": 0,
       "Stevie": 0
     },
@@ -499,11 +594,11 @@
     },
     {
       "team": "St.Mirren",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
-      "Dean": 1,
+      "Dean": 2,
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
@@ -734,7 +829,6 @@
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
-   
     }
   ]
 }
