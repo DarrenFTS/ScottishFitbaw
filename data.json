@@ -84,9 +84,9 @@
     {
       "player": "Stevie",
       "played": 2,
-      "home": 0,
+      "home": 1,
       "draw": 0,
-      "away": 1,
+      "away": 0,
       "cs": 0,
       "bonus": 0
     }
@@ -278,7 +278,7 @@
           "had": "H",
           "score": "5-1",
           "bonus": 0,
-          "pts": 2
+          "pts": 1
         }
       ]
     }
