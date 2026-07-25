@@ -213,6 +213,18 @@ body::before{content:'';position:fixed;inset:0;
     <div style="background:rgba(13,61,13,0.7);border:1px solid var(--border);border-radius:10px;padding:28px 32px;margin-bottom:20px;">
 
       <div style="margin-bottom:24px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:var(--gold);margin-bottom:12px;">&#127942; League Table Order</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--green-light);font-size:1.1rem;flex-shrink:0;">&#9658;</span>
+            <span style="font-size:0.97rem;line-height:1.5;">The table is always ordered by <strong style="color:var(--gold);">total points</strong>. Where players are level on points, the tiebreaker order is: <strong style="color:var(--gold);">Correct Scores &rsaquo; Draws &rsaquo; Away Wins &rsaquo; Home Wins &rsaquo; Bonus Points</strong></span>
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="color:var(--green-light);font-size:1.1rem;flex-shrink:0;">&#9658;</span>
+            <span style="font-size:0.97rem;line-height:1.5;">If all tiebreakers are also equal, players share the same position. The next player below them takes the position after the shared group (e.g. four players tied 5th means the next player is 9th)</span>
+          </li>
+        </ul>
+
         <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:var(--gold);margin-bottom:12px;">&#9200; Weekly Picks</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
           <li style="display:flex;gap:12px;align-items:flex-start;">
@@ -365,10 +377,36 @@ const PLAYERS = ['Callum','Darren','Davie','Dean','Jamie','Roger','Rhys','Scott'
 function calcPts(p){return (p.home||0)*1+(p.draw||0)*3+(p.away||0)*2+(p.cs||0)*5+(p.bonus||0);}
 
 function renderLeague(state, container){
-  const rows = state.league.map(p=>({...p,points:calcPts(p)})).sort((a,b)=>b.points-a.points);
+  const rows = state.league.map(p=>({...p,points:calcPts(p)})).sort((a,b)=>{
+    if(b.points !== a.points) return b.points - a.points;
+    if((b.cs||0) !== (a.cs||0)) return (b.cs||0) - (a.cs||0);
+    if((b.draw||0) !== (a.draw||0)) return (b.draw||0) - (a.draw||0);
+    if((b.away||0) !== (a.away||0)) return (b.away||0) - (a.away||0);
+    if((b.home||0) !== (a.home||0)) return (b.home||0) - (a.home||0);
+    return (b.bonus||0) - (a.bonus||0);
+  });
   const maxPts = rows[0]?Math.max(rows[0].points,1):1;
+
+  // ── Assign positions with tied-rank logic ──
+  let rankPos = 1;
+  const positions = rows.map((p, i) => {
+    if(i === 0) { rankPos = 1; return 1; }
+    const prev = rows[i-1];
+    const samePoints = p.points === prev.points;
+    const sameCS     = (p.cs||0) === (prev.cs||0);
+    const sameDraw   = (p.draw||0) === (prev.draw||0);
+    const sameAway   = (p.away||0) === (prev.away||0);
+    const sameHome   = (p.home||0) === (prev.home||0);
+    const sameBonus  = (p.bonus||0) === (prev.bonus||0);
+    if(samePoints && sameCS && sameDraw && sameAway && sameHome && sameBonus){
+      return rankPos; // exact tie — same position
+    }
+    rankPos = i + 1; // next real position (accounts for skipped ranks)
+    return rankPos;
+  });
+
   container.querySelector('#league-tbody').innerHTML = rows.map((p,i)=>{
-    const pos=i+1, pc=pos===1?'pos-1':pos===2?'pos-2':pos===3?'pos-3':'pos-o';
+    const pos=positions[i], pc=pos===1?'pos-1':pos===2?'pos-2':pos===3?'pos-3':'pos-o';
     const bw=Math.round((p.points/maxPts)*100);
     return `<tr>
       <td><span class="pos-badge ${pc}">${pos}</span></td>
