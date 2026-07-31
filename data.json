@@ -376,6 +376,101 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 4,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "Draw",
+          "team": "Hibs",
+          "had": "D",
+          "score": "2-2",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "Partick Th A",
+          "team": "Partick Th",
+          "had": "A",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "Draw",
+          "team": "Ayr",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "",
+          "team": "",
+          "had": "",
+          "score": "",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "Draw",
+          "team": "Falkirk",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Rangers A",
+          "team": "Rangers",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "Edinburgh H",
+          "team": "Edinburgh",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Kelty A",
+          "team": "Kelty",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Ross Co A",
+          "team": "Ross Co",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Aberdeen H",
+          "team": "Aberdeen",
+          "had": "H",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
@@ -386,7 +481,7 @@
       "Darren": 0,
       "Davie": 3,
       "Dean": 0,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 0,
       "Scott": 1,
@@ -465,13 +560,13 @@
     },
     {
       "team": "Rangers",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
-      "Roger": 0,
+      "Roger": 1,
       "Rhys": 0,
       "Scott": 0,
       "Steve": 0,
@@ -481,7 +576,7 @@
       "team": "Partick Th",
       "total": 1,
       "Callum": 0,
-      "Darren": 0,
+      "Darren": 1,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 1,
@@ -767,7 +862,7 @@
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
-      "Scott": 0,
+      "Scott": 1,
       "Steve": 0,
       "Stevie": 1
     },
@@ -801,14 +896,14 @@
     },
     {
       "team": "Edinburgh",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
-      "Rhys": 0,
+      "Rhys": 1,
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
