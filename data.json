@@ -396,7 +396,7 @@
           "had": "A",
           "score": "2-0",
           "bonus": 0,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Davie",
@@ -459,7 +459,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Stevie",
@@ -468,7 +468,7 @@
           "had": "H",
           "score": "2-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 6
         }
       ]
     }
