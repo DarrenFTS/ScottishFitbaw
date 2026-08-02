@@ -2,7 +2,7 @@
   "league": [
     {
       "player": "Callum",
-      "played": 3,
+      "played": 4,
       "home": 0,
       "draw": 1,
       "away": 1,
@@ -11,10 +11,10 @@
     },
     {
       "player": "Darren",
-      "played": 3,
+      "played": 4,
       "home": 3,
       "draw": 0,
-      "away": 0,
+      "away": 1,
       "cs": 1,
       "bonus": 0
     },
@@ -29,7 +29,7 @@
     },
     {
       "player": "Jamie",
-      "played": 3,
+      "played": 4,
       "home": 0,
       "draw": 0,
       "away": 2,
@@ -38,7 +38,7 @@
     },
     {
       "player": "Roger",
-      "played": 3,
+      "played": 4,
       "home": 0,
       "draw": 0,
       "away": 2,
@@ -47,7 +47,7 @@
     },
     {
       "player": "Scott",
-      "played": 3,
+      "played": 4,
       "home": 0,
       "draw": 0,
       "away": 2,
@@ -56,16 +56,16 @@
     },
     {
       "player": "Steve",
-      "played": 3,
+      "played": 4,
       "home": 0,
       "draw": 0,
-      "away": 2,
+      "away": 3,
       "cs": 0,
       "bonus": 0
     },
     {
       "player": "Davie",
-      "played": 3,
+      "played": 4,
       "home": 0,
       "draw": 0,
       "away": 0,
@@ -74,7 +74,7 @@
     },
     {
       "player": "Rhys",
-      "played": 3,
+      "played": 4,
       "home": 0,
       "draw": 0,
       "away": 2,
@@ -83,11 +83,11 @@
     },
     {
       "player": "Stevie",
-      "played": 3,
-      "home": 1,
+      "played": 4,
+      "home": 2,
       "draw": 0,
       "away": 0,
-      "cs": 0,
+      "cs": 1,
       "bonus": 0
     }
   ],
@@ -396,7 +396,7 @@
           "had": "A",
           "score": "2-0",
           "bonus": 0,
-          "pts": 2
+          "pts": 4
         },
         {
           "player": "Davie",
@@ -459,7 +459,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": 2
+          "pts": 4
         },
         {
           "player": "Stevie",
@@ -468,7 +468,7 @@
           "had": "H",
           "score": "2-1",
           "bonus": 0,
-          "pts": 6
+          "pts": 12
         }
       ]
     }
