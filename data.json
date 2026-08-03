@@ -20,7 +20,7 @@
     },
     {
       "player": "Dean",
-      "played": 4,
+      "played": 5,
       "home": 2,
       "draw": 0,
       "away": 2,
@@ -57,10 +57,10 @@
     {
       "player": "Steve",
       "played": 4,
-      "home": 0,
+      "home": -1,
       "draw": 0,
       "away": 3,
-      "cs": 0,
+      "cs": -1,
       "bonus": 0
     },
     {
@@ -459,7 +459,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": 6
+          "pts": 0
         },
         {
           "player": "Stevie",
