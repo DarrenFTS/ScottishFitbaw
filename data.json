@@ -269,7 +269,7 @@
           "had": "A",
           "score": "3-1",
           "bonus": 0,
-          "pts": 4
+          "pts": 2
         },
         {
           "player": "Stevie",
@@ -364,7 +364,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": 4
+          "pts": 2
         },
         {
           "player": "Stevie",
@@ -414,7 +414,7 @@
           "had": "H",
           "score": "3-0",
           "bonus": 0,
-          "pts": -1
+          "pts": 1
         },
         {
           "player": "Jamie",
@@ -459,7 +459,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": -2
+          "pts": 2
         },
         {
           "player": "Stevie",
@@ -468,7 +468,7 @@
           "had": "H",
           "score": "2-1",
           "bonus": 0,
-          "pts": -6
+          "pts": 6
         }
       ]
     }
