@@ -57,10 +57,10 @@
     {
       "player": "Steve",
       "played": 4,
-      "home": -1,
+      "home": 0,
       "draw": 0,
-      "away": 6,
-      "cs": -1,
+      "away": 3,
+      "cs": 0,
       "bonus": 0
     },
     {
