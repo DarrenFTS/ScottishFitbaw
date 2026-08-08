@@ -2,7 +2,7 @@
   "league": [
     {
       "player": "Callum",
-      "played": 4,
+      "played": 5,
       "home": 0,
       "draw": 1,
       "away": 1,
@@ -11,7 +11,7 @@
     },
     {
       "player": "Darren",
-      "played": 4,
+      "played": 5,
       "home": 3,
       "draw": 0,
       "away": 1,
@@ -20,8 +20,8 @@
     },
     {
       "player": "Dean",
-      "played": 4,
-      "home": 2,
+      "played": 5,
+      "home": 3,
       "draw": 0,
       "away": 2,
       "cs": 1,
@@ -29,7 +29,7 @@
     },
     {
       "player": "Jamie",
-      "played": 4,
+      "played": 5,
       "home": 0,
       "draw": 0,
       "away": 2,
@@ -38,7 +38,7 @@
     },
     {
       "player": "Roger",
-      "played": 4,
+      "played": 5,
       "home": 0,
       "draw": 0,
       "away": 2,
@@ -56,7 +56,7 @@
     },
     {
       "player": "Steve",
-      "played": 4,
+      "played": 5,
       "home": 0,
       "draw": 0,
       "away": 3,
@@ -65,7 +65,7 @@
     },
     {
       "player": "Davie",
-      "played": 4,
+      "played": 5,
       "home": 0,
       "draw": 0,
       "away": 0,
@@ -74,11 +74,11 @@
     },
     {
       "player": "Rhys",
-      "played": 4,
-      "home": 0,
+      "played": 5,
+      "home": 1,
       "draw": 0,
       "away": 2,
-      "cs": 1,
+      "cs": 2,
       "bonus": 0
     },
     {
@@ -509,7 +509,7 @@
           "had": "H",
           "score": "3-0",
           "bonus": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "player": "Jamie",
@@ -536,7 +536,7 @@
           "had": "H",
           "score": "2-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 6
         },
         {
           "player": "Scott",
