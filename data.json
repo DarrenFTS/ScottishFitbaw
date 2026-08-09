@@ -47,10 +47,10 @@
     },
     {
       "player": "Scott",
-      "played": 4,
+      "played": 5,
       "home": 0,
       "draw": 0,
-      "away": 2,
+      "away": 4,
       "cs": 0,
       "bonus": 0
     },
@@ -83,7 +83,7 @@
     },
     {
       "player": "Stevie",
-      "played": 4,
+      "played": 5,
       "home": 2,
       "draw": 0,
       "away": 0,
@@ -545,7 +545,7 @@
           "had": "A",
           "score": "3-0",
           "bonus": 0,
-          "pts": 0
+          "pts": 4
         },
         {
           "player": "Steve",
