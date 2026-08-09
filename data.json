@@ -50,7 +50,7 @@
       "played": 5,
       "home": 0,
       "draw": 0,
-      "away": 4,
+      "away": 3,
       "cs": 0,
       "bonus": 0
     },
@@ -545,7 +545,7 @@
           "had": "A",
           "score": "3-0",
           "bonus": 0,
-          "pts": 4
+          "pts": 2
         },
         {
           "player": "Steve",
