@@ -566,15 +566,110 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 6,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "East Kilbride H",
+          "team": "East Kilbride",
+          "had": "H",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "Celtic A",
+          "team": "Celtic",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "Draw",
+          "team": "Hamilton",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "",
+          "team": "",
+          "had": "",
+          "score": "",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "St.Mirren A",
+          "team": "St.Mirren",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Clyde A",
+          "team": "Clyde",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "",
+          "team": "",
+          "had": "",
+          "score": "",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Airdrie A",
+          "team": "Airdrie",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Motherwell A",
+          "team": "Motherwell",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Dunfermline H",
+          "team": "Dunfermline",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
     {
       "team": "DRAW",
-      "total": 7,
+      "total": 8,
       "Callum": 1,
       "Darren": 1,
-      "Davie": 4,
+      "Davie": 5,
       "Dean": 0,
       "Jamie": 1,
       "Roger": 0,
@@ -599,8 +694,8 @@
     },
     {
       "team": "East Kilbride",
-      "total": 1,
-      "Callum": 0,
+      "total": 2,
+      "Callum": 1,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
@@ -697,9 +792,9 @@
     },
     {
       "team": "Celtic",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
-      "Darren": 0,
+      "Darren": 1,
       "Davie": 0,
       "Dean": 1,
       "Jamie": 0,
@@ -739,7 +834,7 @@
     },
     {
       "team": "Motherwell",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -748,7 +843,7 @@
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 0,
+      "Steve": 1,
       "Stevie": 0
     },
     {
@@ -879,12 +974,12 @@
     },
     {
       "team": "St.Mirren",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 2,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
@@ -893,7 +988,7 @@
     },
     {
       "team": "Dunfermline",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -903,7 +998,7 @@
       "Rhys": 0,
       "Scott": 0,
       "Steve": 1,
-      "Stevie": 0
+      "Stevie": 1
     },
     {
       "team": "Ayr",
@@ -1019,7 +1114,7 @@
     },
     {
       "team": "Airdrie",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -1027,7 +1122,7 @@
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
-      "Scott": 0,
+      "Scott": 1,
       "Steve": 0,
       "Stevie": 0
     },
@@ -1047,13 +1142,13 @@
     },
     {
       "team": "Clyde",
-      "total": 1,
+      "total": 2,
       "Callum": 1,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
-      "Roger": 0,
+      "Roger": 1,
       "Rhys": 0,
       "Scott": 0,
       "Steve": 0,
