@@ -599,10 +599,10 @@
         },
         {
           "player": "Dean",
-          "selection": "",
-          "team": "",
-          "had": "",
-          "score": "",
+          "selection": "Hearts H",
+          "team": "Hearts",
+          "had": "H",
+          "score": "2-0",
           "bonus": 0,
           "pts": 0
         },
@@ -626,10 +626,10 @@
         },
         {
           "player": "Rhys",
-          "selection": "",
-          "team": "",
-          "had": "",
-          "score": "",
+          "selection": "Draw",
+          "team": "Forfar",
+          "had": "D",
+          "score": "2-2",
           "bonus": 0,
           "pts": 0
         },
@@ -666,14 +666,14 @@
   "teams": [
     {
       "team": "DRAW",
-      "total": 8,
+      "total": 9,
       "Callum": 1,
       "Darren": 1,
       "Davie": 5,
       "Dean": 0,
       "Jamie": 1,
       "Roger": 0,
-      "Rhys": 0,
+      "Rhys": 1,
       "Scott": 1,
       "Steve": 0,
       "Stevie": 0
@@ -708,11 +708,11 @@
     },
     {
       "team": "Hearts",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
-      "Dean": 0,
+      "Dean": 1,
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
