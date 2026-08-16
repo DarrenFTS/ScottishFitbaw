@@ -11,17 +11,17 @@
     },
     {
       "player": "Darren",
-      "played": 5,
+      "played": 6,
       "home": 3,
       "draw": 0,
-      "away": 1,
+      "away": 2,
       "cs": 1,
       "bonus": 0
     },
     {
       "player": "Dean",
-      "played": 5,
-      "home": 3,
+      "played": 6,
+      "home": 4,
       "draw": 0,
       "away": 2,
       "cs": 1,
@@ -56,7 +56,7 @@
     },
     {
       "player": "Steve",
-      "played": 5,
+      "played": 6,
       "home": 0,
       "draw": 0,
       "away": 3,
@@ -586,7 +586,7 @@
           "had": "A",
           "score": "3-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Davie",
@@ -604,7 +604,7 @@
           "had": "H",
           "score": "2-0",
           "bonus": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "player": "Jamie",
