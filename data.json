@@ -661,12 +661,107 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 7,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "",
+          "team": "",
+          "had": "",
+          "score": "",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "Stenhousemuir A",
+          "team": "Stenhousemuir",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "Morton H",
+          "team": "Morton",
+          "had": "H",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "Livingston H",
+          "team": "Livingston",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "Elgin A",
+          "team": "Elgin",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Ross Co A",
+          "team": "Ross Co",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "Stirling H",
+          "team": "Stirling",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "East Kilbride A",
+          "team": "East Kilbride",
+          "had": "A",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Hamilton A",
+          "team": "Hamilton",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Draw",
+          "team": "Raith",
+          "had": "D",
+          "score": "2-2",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
     {
       "team": "DRAW",
-      "total": 9,
+      "total": 10,
       "Callum": 1,
       "Darren": 1,
       "Davie": 5,
@@ -676,7 +771,7 @@
       "Rhys": 1,
       "Scott": 1,
       "Steve": 0,
-      "Stevie": 0
+      "Stevie": 1
     },
     {
       "team": "St. Johnstone",
@@ -694,7 +789,7 @@
     },
     {
       "team": "East Kilbride",
-      "total": 2,
+      "total": 3,
       "Callum": 1,
       "Darren": 0,
       "Davie": 0,
@@ -702,7 +797,7 @@
       "Jamie": 0,
       "Roger": 1,
       "Rhys": 0,
-      "Scott": 0,
+      "Scott": 1,
       "Steve": 0,
       "Stevie": 0
     },
@@ -862,9 +957,9 @@
     },
     {
       "team": "Stenhousemuir",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
-      "Darren": 0,
+      "Darren": 1,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
@@ -890,13 +985,13 @@
     },
     {
       "team": "Ross Co",
-      "total": 3,
+      "total": 4,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 1,
       "Jamie": 0,
-      "Roger": 1,
+      "Roger": 2,
       "Rhys": 0,
       "Scott": 0,
       "Steve": 1,
@@ -918,7 +1013,7 @@
     },
     {
       "team": "Hamilton",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -927,7 +1022,7 @@
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 0,
+      "Steve": 1,
       "Stevie": 0
     },
     {
@@ -1016,11 +1111,11 @@
     },
     {
       "team": "Livingston",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
-      "Dean": 0,
+      "Dean": 1,
       "Jamie": 0,
       "Roger": 1,
       "Rhys": 0,
@@ -1030,10 +1125,10 @@
     },
     {
       "team": "Morton",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
-      "Davie": 0,
+      "Davie": 1,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
@@ -1156,12 +1251,12 @@
     },
     {
       "team": "Elgin",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
@@ -1212,14 +1307,14 @@
     },
     {
       "team": "Stirling",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 1,
       "Roger": 0,
-      "Rhys": 0,
+      "Rhys": 1,
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
