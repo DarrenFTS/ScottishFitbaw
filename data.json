@@ -667,10 +667,10 @@
       "selections": [
         {
           "player": "Callum",
-          "selection": "",
-          "team": "",
-          "had": "",
-          "score": "",
+          "selection": "Draw",
+          "team": "Morton",
+          "had": "D",
+          "score": "1-1",
           "bonus": 0,
           "pts": 0
         },
@@ -761,8 +761,8 @@
   "teams": [
     {
       "team": "DRAW",
-      "total": 12,
-      "Callum": 1,
+      "total": 13,
+      "Callum": 2,
       "Darren": 1,
       "Davie": 6,
       "Dean": 0,
