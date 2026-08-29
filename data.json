@@ -2,7 +2,7 @@
   "league": [
     {
       "player": "Callum",
-      "played": 7,
+      "played": 8,
       "home": 1,
       "draw": 1,
       "away": 1,
@@ -11,8 +11,8 @@
     },
     {
       "player": "Darren",
-      "played": 7,
-      "home": 3,
+      "played": 8,
+      "home": 4,
       "draw": 0,
       "away": 3,
       "cs": 1,
@@ -20,8 +20,8 @@
     },
     {
       "player": "Dean",
-      "played": 7,
-      "home": 5,
+      "played": 8,
+      "home": 6,
       "draw": 0,
       "away": 2,
       "cs": 2,
@@ -29,7 +29,7 @@
     },
     {
       "player": "Jamie",
-      "played": 7,
+      "played": 8,
       "home": 0,
       "draw": 0,
       "away": 2,
@@ -38,7 +38,7 @@
     },
     {
       "player": "Roger",
-      "played": 7,
+      "played": 8,
       "home": 0,
       "draw": 0,
       "away": 4,
@@ -47,16 +47,16 @@
     },
     {
       "player": "Scott",
-      "played": 7,
+      "played": 8,
       "home": 0,
-      "draw": 0,
+      "draw": 1,
       "away": 3,
       "cs": 0,
       "bonus": 0
     },
     {
       "player": "Steve",
-      "played": 7,
+      "played": 8,
       "home": 0,
       "draw": 0,
       "away": 3,
@@ -65,7 +65,7 @@
     },
     {
       "player": "Davie",
-      "played": 7,
+      "played": 8,
       "home": 0,
       "draw": 0,
       "away": 0,
@@ -74,7 +74,7 @@
     },
     {
       "player": "Rhys",
-      "played": 7,
+      "played": 8,
       "home": 1,
       "draw": 0,
       "away": 2,
@@ -83,7 +83,7 @@
     },
     {
       "player": "Stevie",
-      "played": 7,
+      "played": 8,
       "home": 2,
       "draw": 0,
       "away": 0,
@@ -756,12 +756,107 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 8,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "Ayr H",
+          "team": "Ayr",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "Ross Co H",
+          "team": "Ross Co",
+          "had": "H",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 1
+        },
+        {
+          "player": "Davie",
+          "selection": "Partick Th H",
+          "team": "Partick Th",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "Celtic H",
+          "team": "Celtic",
+          "had": "H",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 1
+        },
+        {
+          "player": "Jamie",
+          "selection": "Raith A",
+          "team": "Raith",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Inverness A",
+          "team": "Inverness",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "Alloa H",
+          "team": "Alloa",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Draw",
+          "team": "Airdrie",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 3
+        },
+        {
+          "player": "Steve",
+          "selection": "Livingston A",
+          "team": "Livingston",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Kilmarnock H",
+          "team": "Kilmarnock",
+          "had": "H",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
     {
       "team": "DRAW",
-      "total": 13,
+      "total": 14,
       "Callum": 2,
       "Darren": 1,
       "Davie": 6,
@@ -769,7 +864,7 @@
       "Jamie": 1,
       "Roger": 0,
       "Rhys": 1,
-      "Scott": 1,
+      "Scott": 2,
       "Steve": 0,
       "Stevie": 1
     },
@@ -817,13 +912,13 @@
     },
     {
       "team": "Inverness",
-      "total": 3,
+      "total": 4,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 1,
-      "Roger": 1,
+      "Roger": 2,
       "Rhys": 0,
       "Scott": 0,
       "Steve": 1,
@@ -859,10 +954,10 @@
     },
     {
       "team": "Partick Th",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 1,
-      "Davie": 0,
+      "Davie": 1,
       "Dean": 0,
       "Jamie": 1,
       "Roger": 0,
@@ -887,11 +982,11 @@
     },
     {
       "team": "Celtic",
-      "total": 3,
+      "total": 4,
       "Callum": 0,
       "Darren": 1,
       "Davie": 0,
-      "Dean": 1,
+      "Dean": 2,
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
@@ -901,26 +996,26 @@
     },
     {
       "team": "Alloa",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
-      "Rhys": 0,
+      "Rhys": 1,
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
     },
     {
       "team": "Raith",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 1,
       "Davie": 0,
       "Dean": 0,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
@@ -985,9 +1080,9 @@
     },
     {
       "team": "Ross Co",
-      "total": 5,
+      "total": 6,
       "Callum": 0,
-      "Darren": 0,
+      "Darren": 1,
       "Davie": 0,
       "Dean": 1,
       "Jamie": 0,
@@ -1041,7 +1136,7 @@
     },
     {
       "team": "Kilmarnock",
-      "total": 2,
+      "total": 3,
       "Callum": 1,
       "Darren": 0,
       "Davie": 0,
@@ -1051,7 +1146,7 @@
       "Rhys": 0,
       "Scott": 1,
       "Steve": 0,
-      "Stevie": 0
+      "Stevie": 1
     },
     {
       "team": "Peterhead",
@@ -1097,8 +1192,8 @@
     },
     {
       "team": "Ayr",
-      "total": 1,
-      "Callum": 1,
+      "total": 2,
+      "Callum": 2,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
@@ -1111,7 +1206,7 @@
     },
     {
       "team": "Livingston",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -1120,7 +1215,7 @@
       "Roger": 1,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 0,
+      "Steve": 1,
       "Stevie": 0
     },
     {
