@@ -3,9 +3,9 @@
     {
       "player": "Callum",
       "played": 9,
-      "home": 2,
+      "home": 1,
       "draw": 1,
-      "away": 1,
+      "away": 2,
       "cs": 2,
       "bonus": 0
     },
@@ -32,7 +32,7 @@
       "played": 9,
       "home": 0,
       "draw": 0,
-      "away": 3,
+      "away": 4,
       "cs": 0,
       "bonus": 0
     },
@@ -862,7 +862,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": 1
+          "pts": 2
         },
         {
           "player": "Darren",
@@ -898,7 +898,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": 2
+          "pts": 4
         },
         {
           "player": "Roger",
