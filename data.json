@@ -1041,6 +1041,101 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 11,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "Ross Co A",
+          "team": "Ross Co",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "Draw",
+          "team": "Raith",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "Elgin H",
+          "team": "Elgin",
+          "had": "H",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "Livingston H",
+          "team": "Livingston",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "Montrose A",
+          "team": "Montrose",
+          "had": "A",
+          "score": "3-2",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Stenhousemuir H",
+          "team": "Stenhousemuir",
+          "had": "H",
+          "score": "1-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "Clyde A",
+          "team": "Clyde",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Hearts A",
+          "team": "Hearts",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Dunfermline A",
+          "team": "Dunfermline",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Rangers A",
+          "team": "Rangers",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
@@ -1096,7 +1191,7 @@
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
-      "Scott": 0,
+      "Scott": 1,
       "Steve": 1,
       "Stevie": 0
     },
@@ -1248,7 +1343,7 @@
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
-      "Roger": 0,
+      "Roger": 1,
       "Rhys": 2,
       "Scott": 0,
       "Steve": 0,
@@ -1271,7 +1366,7 @@
     {
       "team": "Ross Co",
       "total": 7,
-      "Callum": 0,
+      "Callum": 1,
       "Darren": 1,
       "Davie": 0,
       "Dean": 1,
@@ -1529,7 +1624,7 @@
       "Dean": 1,
       "Jamie": 0,
       "Roger": 1,
-      "Rhys": 0,
+      "Rhys": 1,
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
@@ -1539,7 +1634,7 @@
       "total": 3,
       "Callum": 0,
       "Darren": 0,
-      "Davie": 0,
+      "Davie": 1,
       "Dean": 0,
       "Jamie": 2,
       "Roger": 0,
@@ -1583,7 +1678,7 @@
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 2,
       "Scott": 0,
