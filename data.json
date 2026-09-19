@@ -1141,9 +1141,9 @@
   "teams": [
     {
       "team": "DRAW",
-      "total": 16,
-      "Callum": 2,
-      "Darren": 2,
+      "total": 18,
+      "Callum": 3,
+      "Darren": 3,
       "Davie": 6,
       "Dean": 0,
       "Jamie": 1,
@@ -1225,7 +1225,7 @@
     },
     {
       "team": "Rangers",
-      "total": 3,
+      "total": 4,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -1235,7 +1235,7 @@
       "Rhys": 0,
       "Scott": 0,
       "Steve": 0,
-      "Stevie": 2
+      "Stevie": 3
     },
     {
       "team": "Partick Th",
@@ -1365,7 +1365,7 @@
     },
     {
       "team": "Ross Co",
-      "total": 7,
+      "total": 8,
       "Callum": 1,
       "Darren": 1,
       "Davie": 0,
@@ -1463,7 +1463,7 @@
     },
     {
       "team": "Dunfermline",
-      "total": 3,
+      "total": 4,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -1472,7 +1472,7 @@
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 1,
+      "Steve": 2,
       "Stevie": 1
     },
     {
