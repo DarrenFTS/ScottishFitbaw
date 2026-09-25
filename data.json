@@ -1136,13 +1136,108 @@
           "pts": 2
         }
       ]
+    },
+    {
+      "week": 12,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "Draw",
+          "team": "Ayr",
+          "had": "D",
+          "score": "1-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "Clyde A",
+          "team": "Clyde",
+          "had": "A",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "Airdrie H",
+          "team": "Airdrie",
+          "had": "H",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "Inverness H",
+          "team": "Inverness",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "Edinburgh A",
+          "team": "Edinburgh",
+          "had": "A",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Stirling A",
+          "team": "Stirling",
+          "had": "A",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "Montrose A",
+          "team": "Montrose",
+          "had": "A",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Stenhousemuir A",
+          "team": "Stenhousemuir",
+          "had": "A",
+          "score": "1-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Draw",
+          "team": "Raith",
+          "had": "D",
+          "score": "2-2",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Rangers B A",
+          "team": "Rangers B",
+          "had": "A",
+          "score": "4-1",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
     {
       "team": "DRAW",
-      "total": 18,
-      "Callum": 3,
+      "total": 20,
+      "Callum": 4,
       "Darren": 3,
       "Davie": 6,
       "Dean": 0,
@@ -1150,7 +1245,7 @@
       "Roger": 0,
       "Rhys": 1,
       "Scott": 2,
-      "Steve": 0,
+      "Steve": 1,
       "Stevie": 2
     },
     {
@@ -1197,11 +1292,11 @@
     },
     {
       "team": "Inverness",
-      "total": 4,
+      "total": 5,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
-      "Dean": 0,
+      "Dean": 1,
       "Jamie": 1,
       "Roger": 2,
       "Rhys": 0,
@@ -1337,7 +1432,7 @@
     },
     {
       "team": "Stenhousemuir",
-      "total": 4,
+      "total": 5,
       "Callum": 0,
       "Darren": 1,
       "Davie": 0,
@@ -1345,7 +1440,7 @@
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 2,
-      "Scott": 1,
+      "Scott": 2,
       "Steve": 0,
       "Stevie": 0
     },
@@ -1561,12 +1656,12 @@
     },
     {
       "team": "Edinburgh",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 1,
       "Scott": 0,
@@ -1589,10 +1684,10 @@
     },
     {
       "team": "Airdrie",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
-      "Davie": 0,
+      "Davie": 1,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
@@ -1617,9 +1712,9 @@
     },
     {
       "team": "Clyde",
-      "total": 3,
+      "total": 4,
       "Callum": 1,
-      "Darren": 0,
+      "Darren": 1,
       "Davie": 0,
       "Dean": 1,
       "Jamie": 0,
@@ -1673,27 +1768,27 @@
     },
     {
       "team": "Montrose",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 1,
       "Roger": 0,
-      "Rhys": 2,
+      "Rhys": 3,
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
     },
     {
       "team": "Stirling",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 1,
-      "Roger": 0,
+      "Roger": 1,
       "Rhys": 1,
       "Scott": 0,
       "Steve": 0,
@@ -1712,6 +1807,20 @@
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
+    },
+    {
+      "team": "Rangers B",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 1
     }
   ]
 }
