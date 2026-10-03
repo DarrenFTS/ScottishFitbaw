@@ -2,17 +2,17 @@
   "league": [
     {
       "player": "Callum",
-      "played": 12,
+      "played": 13,
       "home": 1,
       "draw": 1,
-      "away": 4,
+      "away": 5,
       "cs": 2,
       "bonus": 0
     },
     {
       "player": "Darren",
-      "played": 12,
-      "home": 4,
+      "played": 13,
+      "home": 5,
       "draw": 1,
       "away": 4,
       "cs": 1,
@@ -20,8 +20,8 @@
     },
     {
       "player": "Dean",
-      "played": 12,
-      "home": 9,
+      "played": 13,
+      "home": 10,
       "draw": 0,
       "away": 2,
       "cs": 4,
@@ -29,7 +29,7 @@
     },
     {
       "player": "Jamie",
-      "played": 12,
+      "played": 13,
       "home": 0,
       "draw": 0,
       "away": 4,
@@ -38,7 +38,7 @@
     },
     {
       "player": "Roger",
-      "played": 12,
+      "played": 13,
       "home": 0,
       "draw": 0,
       "away": 5,
@@ -47,7 +47,7 @@
     },
     {
       "player": "Scott",
-      "played": 12,
+      "played": 13,
       "home": 1,
       "draw": 1,
       "away": 5,
@@ -56,16 +56,16 @@
     },
     {
       "player": "Steve",
-      "played": 12,
-      "home": 0,
+      "played": 13,
+      "home": 1,
       "draw": 0,
       "away": 5,
       "cs": 0,
-      "bonus": 0
+      "bonus": 5
     },
     {
       "player": "Davie",
-      "played": 12,
+      "played": 13,
       "home": 3,
       "draw": 0,
       "away": 0,
@@ -74,7 +74,7 @@
     },
     {
       "player": "Rhys",
-      "played": 12,
+      "played": 13,
       "home": 2,
       "draw": 0,
       "away": 2,
@@ -83,7 +83,7 @@
     },
     {
       "player": "Stevie",
-      "played": 12,
+      "played": 13,
       "home": 3,
       "draw": 0,
       "away": 1,
@@ -1231,6 +1231,101 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 13,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "Raith A",
+          "team": "Raith",
+          "had": "A",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 2
+        },
+        {
+          "player": "Darren",
+          "selection": "Hill of Beath H",
+          "team": "Hill of Beath",
+          "had": "H",
+          "score": "6-1",
+          "bonus": 0,
+          "pts": 1
+        },
+        {
+          "player": "Davie",
+          "selection": "Invergordon A",
+          "team": "Invergordon",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "Ross Co H",
+          "team": "Ross Co",
+          "had": "H",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 1
+        },
+        {
+          "player": "Jamie",
+          "selection": "Johnstone Burgh A",
+          "team": "Johnstone Burgh",
+          "had": "A",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Irvine Meadow A",
+          "team": "Irvine Meadow",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "Stonehaven A",
+          "team": "Stonehaven",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Banks O Dee A",
+          "team": "Banks O Dee",
+          "had": "A",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Penicuik H",
+          "team": "Penicuik",
+          "had": "H",
+          "score": "2-1",
+          "bonus": 5,
+          "pts": 6
+        },
+        {
+          "player": "Stevie",
+          "selection": "Forres H",
+          "team": "Forres",
+          "had": "H",
+          "score": "4-3",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
@@ -1390,8 +1485,8 @@
     },
     {
       "team": "Raith",
-      "total": 4,
-      "Callum": 1,
+      "total": 5,
+      "Callum": 2,
       "Darren": 1,
       "Davie": 1,
       "Dean": 0,
@@ -1460,11 +1555,11 @@
     },
     {
       "team": "Ross Co",
-      "total": 8,
+      "total": 9,
       "Callum": 1,
       "Darren": 1,
       "Davie": 0,
-      "Dean": 1,
+      "Dean": 2,
       "Jamie": 0,
       "Roger": 3,
       "Rhys": 0,
@@ -1810,6 +1905,118 @@
     },
     {
       "team": "Rangers B",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 1
+    },
+    {
+      "team": "Hill of Beath",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 1,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Invergordon",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 1,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Johnstone Burgh",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 1,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Irvine Meadow",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 1,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Stonehaven",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 1,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Banks O Dee",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 1,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Penicuik",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 1,
+      "Stevie": 0
+    },
+    {
+      "team": "Forres",
       "total": 1,
       "Callum": 0,
       "Darren": 0,
