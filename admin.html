@@ -58,7 +58,7 @@ body::before{content:'';position:fixed;inset:0;
 .week-selector label{font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:0.08em;color:var(--text-dim);}
 .week-selector select{background:rgba(255,255,255,0.08);border:1px solid var(--border);color:#fff;padding:8px 14px;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-size:0.95rem;cursor:pointer;}
 .week-selector select option{background:#0a2e0a;}
-.sel-table{min-width:500px;}.bonus-table{min-width:1000px;}.teams-table{min-width:1100px;}
+.sel-table{min-width:500px;}.bonus-table{min-width:1100px;}.teams-table{min-width:1100px;}
 .pts-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-weight:700;font-size:0.88rem;}
 .pts-high{background:rgba(240,192,64,0.2);color:var(--gold);border:1px solid rgba(240,192,64,0.4);}
 .pts-mid{background:rgba(34,170,34,0.15);color:#6edf6e;border:1px solid rgba(34,170,34,0.3);}
@@ -284,6 +284,7 @@ body::before{content:'';position:fixed;inset:0;
         <th>Scottish Cup<br><small style="color:var(--text-dim);font-size:0.7rem">5 pts</small></th>
         <th>Challenge Cup<br><small style="color:var(--text-dim);font-size:0.7rem">5 pts</small></th>
         <th>1st Sacking<br><small style="color:var(--text-dim);font-size:0.7rem">5 pts</small></th>
+        <th>Tennents Sixes<br><small style="color:var(--text-dim);font-size:0.7rem">5 pts</small></th>
       </tr></thead>
       <tbody id="bonus-tbody"></tbody>
     </table>
@@ -400,16 +401,16 @@ body::before{content:'';position:fixed;inset:0;
 <script>
 
 const BONUS = [
-  {player:'Callum', p3:['Aberdeen','pending'],  bottom:['St.Mirren','pending'], champ:['Partick','pending'],     l1:['Ross County','pending'], l2:['Clyde','pending'],          lc:['Celtic','pending'],  sc:['Rangers','pending'], cc:['Raith','pending'],          sack:['Craig MacLeish (St.Mirren)','pending']},
-  {player:'Darren', p3:['Hibs','pending'],      bottom:['Kilmarnock','pending'], champ:['Dunfermline','pending'], l1:['Ross County','pending'], l2:['Spartans','pending'],       lc:['Falkirk','pending'], sc:['Celtic','pending'],  cc:['Raith Rovers','pending'],   sack:['Wouter Vrancken (Hearts)','pending']},
-  {player:'Dean',   p3:['Hearts','pending'],    bottom:['Kilmarnock','pending'], champ:['Livingston','pending'],  l1:['Ross County','pending'], l2:['Clyde','pending'],          lc:['Rangers','pending'], sc:['Celtic','pending'],  cc:['Ross County','pending'],    sack:['Neil McCann (Kilmarnock)','pending']},
-  {player:'Jamie',  p3:['Hearts','pending'],    bottom:['Kilmarnock','pending'], champ:['Livingston','pending'],  l1:['Airdrie','pending'],     l2:['Clyde','pending'],          lc:['Celtic','pending'],  sc:['Hearts','pending'],  cc:['Dunfermline','pending'],    sack:['Darian Mackinnon (Hamilton)','pending']},
-  {player:'Roger',  p3:['Hearts','pending'],    bottom:['St.Johnstone','pending'], champ:['Dunfermline','pending'], l1:['Hamilton','pending'],    l2:['Stirling Albion','pending'], lc:['Celtic','pending'],  sc:['Celtic','pending'],  cc:['Raith Rovers','pending'],   sack:['Craig McLeish (St.Mirren)','pending']},
-  {player:'Scott',  p3:['Hearts','pending'],    bottom:['St.Johnstone','pending'], champ:['Livingston','pending'],  l1:['Ross County','pending'], l2:['East Fife','pending'],      lc:['Rangers','pending'], sc:['Hearts','pending'],  cc:['Partick Thistle','pending'], sack:['John Rankin (Airdrie)','pending']},
-  {player:'Steve',  p3:['Hearts','pending'],    bottom:['Kilmarnock','pending'], champ:['Livingston','pending'],  l1:['Ross County','pending'], l2:['Kelty','pending'],          lc:['Rangers','pending'], sc:['Celtic','pending'],  cc:['Ross County','pending'],    sack:['Neil McCann (Kilmarnock)','pending']},
-  {player:'Davie',  p3:['Hearts','pending'],    bottom:['Dundee','pending'], champ:['Dunfermline','pending'], l1:['Ross County','pending'], l2:['Spartans','pending'],       lc:['Celtic','pending'],  sc:['Celtic','pending'],  cc:['Dunfermline','pending'],    sack:['Steven Pressley (Dundee)','pending']},
-  {player:'Rhys',   p3:['Aberdeen','pending'],  bottom:['Kilmarnock','pending'], champ:['Livingston','pending'],  l1:['Montrose','pending'],    l2:['Kelty','pending'],          lc:['Rangers','pending'], sc:['Celtic','pending'],  cc:['Dunfermline','pending'],    sack:['Steven Pressley (Dundee)','pending']},
-  {player:'Stevie', p3:['Hearts','pending'],    bottom:['St.Johnstone','pending'], champ:['Livingston','pending'],  l1:['Ross County','pending'], l2:['East Fife','pending'],      lc:['Rangers','pending'], sc:['Rangers','pending'], cc:['Livingston','pending'],     sack:["Martin O'Neill (Celtic)",'pending']},
+  {player:'Callum', p3:['Aberdeen','pending'],  bottom:['St.Mirren','pending'], champ:['Partick','pending'],     l1:['Ross County','pending'], l2:['Clyde','pending'],          lc:['Celtic','pending'],  sc:['Rangers','pending'], cc:['Raith','pending'],          sack:['Craig MacLeish (St.Mirren)','wrong'], sixes:['Dundee Utd','pending']},
+  {player:'Darren', p3:['Hibs','pending'],      bottom:['Kilmarnock','pending'], champ:['Dunfermline','pending'], l1:['Ross County','pending'], l2:['Spartans','pending'],       lc:['Falkirk','pending'], sc:['Celtic','pending'],  cc:['Raith Rovers','pending'],   sack:['Wouter Vrancken (Hearts)','wrong'],   sixes:['Hibernian','pending']},
+  {player:'Dean',   p3:['Hearts','pending'],    bottom:['Kilmarnock','pending'], champ:['Livingston','pending'],  l1:['Ross County','pending'], l2:['Clyde','pending'],          lc:['Rangers','pending'], sc:['Celtic','pending'],  cc:['Ross County','pending'],    sack:['Neil McCann (Kilmarnock)','wrong'],   sixes:['Celtic','pending']},
+  {player:'Jamie',  p3:['Hearts','pending'],    bottom:['Kilmarnock','pending'], champ:['Livingston','pending'],  l1:['Airdrie','pending'],     l2:['Clyde','pending'],          lc:['Celtic','pending'],  sc:['Hearts','pending'],  cc:['Dunfermline','pending'],    sack:['Darian Mackinnon (Hamilton)','wrong'],sixes:['Motherwell','pending']},
+  {player:'Roger',  p3:['Hearts','pending'],    bottom:['St.Johnstone','pending'], champ:['Dunfermline','pending'], l1:['Hamilton','pending'],    l2:['Stirling Albion','pending'], lc:['Celtic','pending'],  sc:['Celtic','pending'],  cc:['Raith Rovers','pending'],   sack:['Craig McLeish (St.Mirren)','wrong'],  sixes:['Rangers','pending']},
+  {player:'Scott',  p3:['Hearts','pending'],    bottom:['St.Johnstone','pending'], champ:['Livingston','pending'],  l1:['Ross County','pending'], l2:['East Fife','pending'],      lc:['Rangers','pending'], sc:['Hearts','pending'],  cc:['Partick Thistle','pending'], sack:['John Rankin (Airdrie)','wrong'],      sixes:['Hearts','pending']},
+  {player:'Steve',  p3:['Hearts','pending'],    bottom:['Kilmarnock','pending'], champ:['Livingston','pending'],  l1:['Ross County','pending'], l2:['Kelty','pending'],          lc:['Rangers','pending'], sc:['Celtic','pending'],  cc:['Ross County','pending'],    sack:['Neil McCann (Kilmarnock)','wrong'],   sixes:['Celtic','pending']},
+  {player:'Davie',  p3:['Hearts','pending'],    bottom:['Dundee','pending'], champ:['Dunfermline','pending'], l1:['Ross County','pending'], l2:['Spartans','pending'],       lc:['Celtic','pending'],  sc:['Celtic','pending'],  cc:['Dunfermline','pending'],    sack:['Steven Pressley (Dundee)','wrong'],   sixes:['Aberdeen','pending']},
+  {player:'Rhys',   p3:['Aberdeen','pending'],  bottom:['Kilmarnock','pending'], champ:['Livingston','pending'],  l1:['Montrose','pending'],    l2:['Kelty','pending'],          lc:['Rangers','pending'], sc:['Celtic','pending'],  cc:['Dunfermline','pending'],    sack:['Steven Pressley (Dundee)','wrong'],   sixes:['Celtic','pending']},
+  {player:'Stevie', p3:['Hearts','pending'],    bottom:['St.Johnstone','pending'], champ:['Livingston','pending'],  l1:['Ross County','pending'], l2:['East Fife','pending'],      lc:['Rangers','pending'], sc:['Rangers','pending'], cc:['Livingston','pending'],     sack:["Martin O'Neill (Celtic)",'wrong'],    sixes:['Rangers','pending']},
 ];
 
 
@@ -552,7 +553,7 @@ function renderLeague(state, container){
 }
 
 function renderBonus(container){
-  const fields=['p3','bottom','champ','l1','l2','lc','sc','cc','sack'];
+  const fields=['p3','bottom','champ','l1','l2','lc','sc','cc','sack','sixes'];
   container.querySelector('#bonus-tbody').innerHTML = BONUS.map(b=>`<tr>
     <td style="text-align:left"><strong>${b.player}</strong></td>
     ${fields.map(f=>{const [val,status]=b[f];return `<td><span class="bc-${status}">${val}</span></td>`;}).join('')}
