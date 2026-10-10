@@ -25,7 +25,7 @@
       "draw": 0,
       "away": 2,
       "cs": 4,
-      "bonus": 0
+      "bonus": 5
     },
     {
       "player": "Jamie",
@@ -61,7 +61,7 @@
       "draw": 0,
       "away": 5,
       "cs": 0,
-      "bonus": 5
+      "bonus": 10
     },
     {
       "player": "Davie",
@@ -79,7 +79,7 @@
       "draw": 0,
       "away": 2,
       "cs": 2,
-      "bonus": 0
+      "bonus": 5
     },
     {
       "player": "Stevie",
@@ -1326,6 +1326,101 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 14,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "Ross Co A",
+          "team": "Ross Co",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "Arbroath H",
+          "team": "Arbroath",
+          "had": "H",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "Spartans A",
+          "team": "Spartans",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "Rangers H",
+          "team": "Rangers",
+          "had": "H",
+          "score": "3-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "East Fife A",
+          "team": "East Fife",
+          "had": "A",
+          "score": "1-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Stranraer A",
+          "team": "Stranraer",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "QOS A",
+          "team": "QOS",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Celtic A",
+          "team": "Celtic",
+          "had": "A",
+          "score": "2-0",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Hamilton A",
+          "team": "Hamilton",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Clyde H",
+          "team": "Clyde",
+          "had": "H",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
@@ -1401,10 +1496,10 @@
     },
     {
       "team": "Spartans",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
-      "Davie": 0,
+      "Davie": 1,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
@@ -1415,11 +1510,11 @@
     },
     {
       "team": "Rangers",
-      "total": 4,
+      "total": 5,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
-      "Dean": 0,
+      "Dean": 1,
       "Jamie": 0,
       "Roger": 1,
       "Rhys": 0,
@@ -1457,7 +1552,7 @@
     },
     {
       "team": "Celtic",
-      "total": 5,
+      "total": 6,
       "Callum": 0,
       "Darren": 1,
       "Davie": 0,
@@ -1465,7 +1560,7 @@
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
-      "Scott": 2,
+      "Scott": 3,
       "Steve": 0,
       "Stevie": 0
     },
@@ -1513,14 +1608,14 @@
     },
     {
       "team": "QOS",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
-      "Rhys": 0,
+      "Rhys": 1,
       "Scott": 0,
       "Steve": 1,
       "Stevie": 0
@@ -1541,9 +1636,9 @@
     },
     {
       "team": "Arbroath",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
-      "Darren": 0,
+      "Darren": 1,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
@@ -1555,8 +1650,8 @@
     },
     {
       "team": "Ross Co",
-      "total": 9,
-      "Callum": 1,
+      "total": 10,
+      "Callum": 2,
       "Darren": 1,
       "Davie": 0,
       "Dean": 2,
@@ -1583,7 +1678,7 @@
     },
     {
       "team": "Hamilton",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -1592,7 +1687,7 @@
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
-      "Steve": 1,
+      "Steve": 2,
       "Stevie": 0
     },
     {
@@ -1737,12 +1832,12 @@
     },
     {
       "team": "East Fife",
-      "total": 0,
+      "total": 1,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
-      "Jamie": 0,
+      "Jamie": 1,
       "Roger": 0,
       "Rhys": 0,
       "Scott": 0,
@@ -1807,7 +1902,7 @@
     },
     {
       "team": "Clyde",
-      "total": 4,
+      "total": 5,
       "Callum": 1,
       "Darren": 1,
       "Davie": 0,
@@ -1817,7 +1912,7 @@
       "Rhys": 1,
       "Scott": 0,
       "Steve": 0,
-      "Stevie": 0
+      "Stevie": 1
     },
     {
       "team": "Elgin",
@@ -2028,6 +2123,20 @@
       "Scott": 0,
       "Steve": 0,
       "Stevie": 1
+    },
+    {
+      "team": "Stranraer",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 1,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
     }
   ]
 }
