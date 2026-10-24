@@ -2,7 +2,7 @@
   "league": [
     {
       "player": "Callum",
-      "played": 15,
+      "played": 16,
       "home": 1,
       "draw": 1,
       "away": 6,
@@ -11,7 +11,7 @@
     },
     {
       "player": "Darren",
-      "played": 15,
+      "played": 16,
       "home": 5,
       "draw": 1,
       "away": 5,
@@ -20,8 +20,8 @@
     },
     {
       "player": "Dean",
-      "played": 15,
-      "home": 11,
+      "played": 16,
+      "home": 12,
       "draw": 0,
       "away": 2,
       "cs": 4,
@@ -38,16 +38,16 @@
     },
     {
       "player": "Roger",
-      "played": 15,
+      "played": 16,
       "home": 0,
       "draw": 0,
-      "away": 7,
+      "away": 8,
       "cs": 1,
       "bonus": 0
     },
     {
       "player": "Scott",
-      "played": 15,
+      "played": 16,
       "home": 1,
       "draw": 2,
       "away": 6,
@@ -56,7 +56,7 @@
     },
     {
       "player": "Steve",
-      "played": 15,
+      "played": 16,
       "home": 1,
       "draw": 0,
       "away": 6,
@@ -65,8 +65,8 @@
     },
     {
       "player": "Davie",
-      "played": 15,
-      "home": 3,
+      "played": 16,
+      "home": 4,
       "draw": 0,
       "away": 1,
       "cs": 0,
@@ -74,8 +74,8 @@
     },
     {
       "player": "Rhys",
-      "played": 15,
-      "home": 2,
+      "played": 16,
+      "home": 3,
       "draw": 0,
       "away": 4,
       "cs": 3,
@@ -83,8 +83,8 @@
     },
     {
       "player": "Stevie",
-      "played": 15,
-      "home": 4,
+      "played": 16,
+      "home": 5,
       "draw": 0,
       "away": 1,
       "cs": 3,
@@ -1545,7 +1545,7 @@
           "had": "H",
           "score": "2-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "player": "Dean",
@@ -1554,7 +1554,7 @@
           "had": "H",
           "score": "3-0",
           "bonus": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "player": "Jamie",
@@ -1572,7 +1572,7 @@
           "had": "A",
           "score": "3-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Rhys",
@@ -1581,7 +1581,7 @@
           "had": "H",
           "score": "3-0",
           "bonus": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "player": "Scott",
@@ -1608,7 +1608,7 @@
           "had": "H",
           "score": "5-3",
           "bonus": 0,
-          "pts": 0
+          "pts": 1
         }
       ]
     }
