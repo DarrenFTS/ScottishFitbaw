@@ -20,8 +20,8 @@
     },
     {
       "player": "Dean",
-      "played": 17,
-      "home": 12,
+      "played": 18,
+      "home": 13,
       "draw": 0,
       "away": 2,
       "cs": 4,
@@ -1744,7 +1744,7 @@
           "had": "H",
           "score": "3-0",
           "bonus": 0,
-          "pts": 0
+          "pts": 1
         },
         {
           "player": "Jamie",
