@@ -47,7 +47,7 @@
     },
     {
       "player": "Scott",
-      "played": 18,
+      "played": 19,
       "home": 1,
       "draw": 3,
       "away": 6,
@@ -1870,10 +1870,10 @@
         },
         {
           "player": "Scott",
-          "selection": "",
-          "team": "",
-          "had": "",
-          "score": "",
+          "selection": "Draw",
+          "team": "Dundee",
+          "had": "D",
+          "score": "1-1",
           "bonus": 0,
           "pts": 0
         },
@@ -1901,7 +1901,7 @@
   "teams": [
     {
       "team": "DRAW",
-      "total": 26,
+      "total": 27,
       "Callum": 4,
       "Darren": 4,
       "Davie": 6,
@@ -1909,7 +1909,7 @@
       "Jamie": 1,
       "Roger": 0,
       "Rhys": 1,
-      "Scott": 5,
+      "Scott": 6,
       "Steve": 1,
       "Stevie": 4
     },
