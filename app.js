@@ -115,7 +115,7 @@ const RULES_HTML = `  <div class="section-title">Competition Rules</div>
           </li>
           <li style="display:flex;gap:12px;align-items:flex-start;">
             <span style="color:var(--green-light);font-size:1.1rem;flex-shrink:0;">&#9658;</span>
-            <span style="font-size:0.97rem;line-height:1.5;">Your weekly picked result <strong style="color:var(--gold);">cannot be the same team or result</strong> as another player who picked before you &mdash; you cannot pick the same game but a different winner</span>
+            <span style="font-size:0.97rem;line-height:1.5;">Your weekly picked result <strong style="color:var(--gold);">cannot be the same team or result</strong> as another player who picked before you &mdash; you can pick the same game but a different winner</span>
           </li>
         </ul>
       </div>
