@@ -1991,6 +1991,101 @@
           "pts": 0
         }
       ]
+    },
+    {
+      "week": 21,
+      "selections": [
+        {
+          "player": "Callum",
+          "selection": "Brechin A",
+          "team": "Brechin",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Darren",
+          "selection": "Largs H",
+          "team": "Largs",
+          "had": "H",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Davie",
+          "selection": "Morton A",
+          "team": "Morton",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Dean",
+          "selection": "Spartans A",
+          "team": "Spartans",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Jamie",
+          "selection": "Clachnacuddin A",
+          "team": "Clachnacuddin",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Roger",
+          "selection": "Johnstone Burgh A",
+          "team": "Johnstone Burgh",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Rhys",
+          "selection": "Arbroath A",
+          "team": "Arbroath",
+          "had": "A",
+          "score": "3-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Scott",
+          "selection": "Brora A",
+          "team": "Brora",
+          "had": "A",
+          "score": "2-1",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Steve",
+          "selection": "Clyde A",
+          "team": "Clyde",
+          "had": "A",
+          "score": "3-2",
+          "bonus": 0,
+          "pts": 0
+        },
+        {
+          "player": "Stevie",
+          "selection": "Livingston A",
+          "team": "Livingston",
+          "had": "A",
+          "score": "5-1",
+          "bonus": 0,
+          "pts": 0
+        }
+      ]
     }
   ],
   "teams": [
@@ -2066,11 +2161,11 @@
     },
     {
       "team": "Spartans",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 1,
-      "Dean": 0,
+      "Dean": 1,
       "Jamie": 0,
       "Roger": 0,
       "Rhys": 0,
@@ -2206,14 +2301,14 @@
     },
     {
       "team": "Arbroath",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
       "Darren": 1,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
-      "Rhys": 1,
+      "Rhys": 2,
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
@@ -2346,7 +2441,7 @@
     },
     {
       "team": "Livingston",
-      "total": 7,
+      "total": 8,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -2356,14 +2451,14 @@
       "Rhys": 1,
       "Scott": 0,
       "Steve": 2,
-      "Stevie": 0
+      "Stevie": 1
     },
     {
       "team": "Morton",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
-      "Davie": 1,
+      "Davie": 2,
       "Dean": 0,
       "Jamie": 0,
       "Roger": 0,
@@ -2374,7 +2469,7 @@
     },
     {
       "team": "Kelty",
-      "total": 2,
+      "total": 3,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -2472,7 +2567,7 @@
     },
     {
       "team": "Clyde",
-      "total": 6,
+      "total": 8,
       "Callum": 1,
       "Darren": 1,
       "Davie": 0,
@@ -2481,12 +2576,12 @@
       "Roger": 2,
       "Rhys": 1,
       "Scott": 0,
-      "Steve": 0,
+      "Steve": 1,
       "Stevie": 1
     },
     {
       "team": "Elgin",
-      "total": 5,
+      "total": 6,
       "Callum": 1,
       "Darren": 0,
       "Davie": 1,
@@ -2528,7 +2623,7 @@
     },
     {
       "team": "Montrose",
-      "total": 6,
+      "total": 7,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
@@ -2612,13 +2707,13 @@
     },
     {
       "team": "Johnstone Burgh",
-      "total": 1,
+      "total": 2,
       "Callum": 0,
       "Darren": 0,
       "Davie": 0,
       "Dean": 0,
       "Jamie": 1,
-      "Roger": 0,
+      "Roger": 1,
       "Rhys": 0,
       "Scott": 0,
       "Steve": 0,
@@ -2777,6 +2872,63 @@
       "Scott": 0,
       "Steve": 0,
       "Stevie": 0
+    },
+    {
+      "team": "Brechin",
+      "total": 1,
+      "Callum": 1,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Largs",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 1,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Clachnacuddin",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 1,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 0,
+      "Steve": 0,
+      "Stevie": 0
+    },
+    {
+      "team": "Brora",
+      "total": 1,
+      "Callum": 0,
+      "Darren": 0,
+      "Davie": 0,
+      "Dean": 0,
+      "Jamie": 0,
+      "Roger": 0,
+      "Rhys": 0,
+      "Scott": 1,
+      "Steve": 0,
+      "Stevie": 0
     }
-  ]
+  ],
+  "updated": "2026-11-28T09:09:34.792Z"
 }
