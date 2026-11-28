@@ -2,16 +2,16 @@
   "league": [
     {
       "player": "Callum",
-      "played": 20,
+      "played": 21,
       "home": 3,
       "draw": 1,
-      "away": 7,
-      "cs": 2,
+      "away": 8,
+      "cs": 3,
       "bonus": 0
     },
     {
       "player": "Darren",
-      "played": 20,
+      "played": 21,
       "home": 5,
       "draw": 1,
       "away": 5,
@@ -20,7 +20,7 @@
     },
     {
       "player": "Dean",
-      "played": 20,
+      "played": 21,
       "home": 14,
       "draw": 0,
       "away": 2,
@@ -29,25 +29,25 @@
     },
     {
       "player": "Jamie",
-      "played": 20,
+      "played": 21,
       "home": 0,
       "draw": 0,
-      "away": 6,
+      "away": 7,
       "cs": 0,
-      "bonus": 0
+      "bonus": 5
     },
     {
       "player": "Roger",
-      "played": 20,
+      "played": 21,
       "home": 0,
       "draw": 0,
-      "away": 12,
+      "away": 13,
       "cs": 1,
-      "bonus": 0
+      "bonus": 5
     },
     {
       "player": "Scott",
-      "played": 20,
+      "played": 21,
       "home": 1,
       "draw": 3,
       "away": 7,
@@ -56,7 +56,7 @@
     },
     {
       "player": "Steve",
-      "played": 20,
+      "played": 21,
       "home": 2,
       "draw": 0,
       "away": 9,
@@ -65,28 +65,28 @@
     },
     {
       "player": "Davie",
-      "played": 20,
+      "played": 21,
       "home": 8,
       "draw": 0,
-      "away": 1,
+      "away": 2,
       "cs": 0,
       "bonus": 0
     },
     {
       "player": "Rhys",
-      "played": 20,
+      "played": 21,
       "home": 4,
       "draw": 0,
-      "away": 4,
-      "cs": 3,
+      "away": 5,
+      "cs": 4,
       "bonus": 5
     },
     {
       "player": "Stevie",
-      "played": 20,
+      "played": 21,
       "home": 7,
       "draw": 0,
-      "away": 1,
+      "away": 2,
       "cs": 4,
       "bonus": 0
     }
@@ -2002,7 +2002,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 7
         },
         {
           "player": "Darren",
@@ -2020,7 +2020,7 @@
           "had": "A",
           "score": "2-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 2
         },
         {
           "player": "Dean",
@@ -2037,8 +2037,8 @@
           "team": "Clachnacuddin",
           "had": "A",
           "score": "2-1",
-          "bonus": 0,
-          "pts": 0
+          "bonus": 5,
+          "pts": 7
         },
         {
           "player": "Roger",
@@ -2046,8 +2046,8 @@
           "team": "Johnstone Burgh",
           "had": "A",
           "score": "2-1",
-          "bonus": 0,
-          "pts": 0
+          "bonus": 5,
+          "pts": 7
         },
         {
           "player": "Rhys",
@@ -2056,7 +2056,7 @@
           "had": "A",
           "score": "3-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 7
         },
         {
           "player": "Scott",
@@ -2083,7 +2083,7 @@
           "had": "A",
           "score": "5-1",
           "bonus": 0,
-          "pts": 0
+          "pts": 2
         }
       ]
     }
@@ -2930,5 +2930,5 @@
       "Stevie": 0
     }
   ],
-  "updated": "2026-11-28T09:09:34.792Z"
+  "updated": "2026-11-28T17:01:49.263Z"
 }
